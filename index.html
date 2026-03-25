@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innago — Engineering Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --innago-blue: #1A56DB;
+  --innago-blue-dark: #0F3A8F;
+  --innago-blue-50: #F5F8FF;
+  --innago-blue-100: #DBEAFE;
+  --innago-blue-200: #BFCFFC;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --purple: #7C3AED;
+  --purple-light: #F3EEFF;
+  --amber: #D97706;
+  --amber-light: #FFFBEB;
+  --cyan: #0891B2;
+  --cyan-light: #ECFEFF;
+  --rose: #E11D48;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.1);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ─── Top accent ─── */
+.top-accent {
+  height: 5px;
+  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--purple) 25%, var(--green) 50%, var(--amber) 75%, var(--innago-blue) 100%);
+}
+
+/* ─── Hero ─── */
+.hero {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 48px 52px;
+  text-align: center;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.05s;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: var(--innago-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.3px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.08;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.1s;
+}
+
+.hero h1 span { color: var(--innago-blue); }
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--gray-500);
+  line-height: 1.65;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.15s;
+}
+
+/* ─── Quick stats ─── */
+.quick-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.2s;
+}
+
+.qs {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.qs-num {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--innago-blue);
+}
+
+.qs-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+/* ─── Cards grid ─── */
+.cards-section {
+  max-width: 1100px;
+  margin: -20px auto 0;
+  padding: 0 48px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* The exec summary card spans full width */
+.cards-grid .card-link:first-child {
+  grid-column: 1 / -1;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.card-link.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  padding: 32px 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.card:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.card:hover::after { opacity: 1; }
+
+.card-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-400);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  color: var(--gray-400);
+  font-size: 16px;
+}
+
+.card:hover .card-arrow {
+  background: var(--innago-blue);
+  border-color: var(--innago-blue);
+  color: white;
+  transform: translateX(2px);
+}
+
+/* Card color variants */
+.card-exec::after { background: linear-gradient(90deg, var(--innago-blue), var(--purple)); }
+.card-exec .card-title { color: var(--innago-blue); }
+.card-exec .card-tag { background: var(--innago-blue-50); color: var(--innago-blue); }
+
+.card-timeline::after { background: var(--innago-blue); }
+.card-timeline .card-title { color: var(--gray-900); }
+.card-timeline .card-tag { background: var(--innago-blue-50); color: var(--innago-blue); }
+
+.card-evolution::after { background: var(--green); }
+.card-evolution .card-title { color: var(--gray-900); }
+.card-evolution .card-tag { background: var(--green-light); color: var(--green); }
+
+.card-maturity::after { background: var(--purple); }
+.card-maturity .card-title { color: var(--gray-900); }
+.card-maturity .card-tag { background: var(--purple-light); color: var(--purple); }
+
+.card-velocity::after { background: var(--amber); }
+.card-velocity .card-title { color: var(--gray-900); }
+.card-velocity .card-tag { background: var(--amber-light); color: var(--amber); }
+
+/* ─── Footer ─── */
+.footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 40px;
+  text-align: center;
+}
+
+.footer-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.footer-conf {
+  font-size: 11px;
+  color: var(--gray-300);
+  margin-top: 4px;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 800px) {
+  .hero-inner { padding: 40px 24px; }
+  .hero h1 { font-size: 32px; }
+  .cards-section { padding: 0 24px 60px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .cards-grid .card-link:first-child { grid-column: 1; }
+  .quick-stats { gap: 20px; flex-wrap: wrap; }
+  .qs-num { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-accent"></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-row">
+      <div class="logo-mark">in</div>
+      <span class="logo-text">innago</span>
+    </div>
+    <h1>Engineering<br><span>Portfolio</span></h1>
+    <p class="hero-sub">3 years of platform evolution — 265 releases, 7 capability pillars, 13 consecutive quarters of shipping. Explore the full execution story.</p>
+    <div class="quick-stats">
+      <div class="qs"><span class="qs-num">265</span><span class="qs-label">Releases</span></div>
+      <div class="qs"><span class="qs-num">174</span><span class="qs-label">Features</span></div>
+      <div class="qs"><span class="qs-num">165</span><span class="qs-label">Milestones</span></div>
+      <div class="qs"><span class="qs-num">7</span><span class="qs-label">Pillars</span></div>
+      <div class="qs"><span class="qs-num">13</span><span class="qs-label">Quarters</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="cards-section">
+  <div class="cards-grid">
+
+    <!-- 1. Exec Summary — full width -->
+    <a href="innago-exec-summary.html" class="card-link">
+      <div class="card card-exec">
+        <div class="card-number">01 — START HERE</div>
+        <div class="card-icon">📋</div>
+        <div class="card-title">Executive Summary</div>
+        <div class="card-desc">The one-pager. Three eras of investment (Foundation → Scale → Intelligence), 7 pillars at a glance, headline stats, and what's next with AI. The entry point for any investor conversation.</div>
+        <div class="card-tags">
+          <span class="card-tag">ONE-PAGER</span>
+          <span class="card-tag">INVESTOR-READY</span>
+          <span class="card-tag">PRINT-FRIENDLY</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- 2. Release Timeline -->
+    <a href="innago-3yr-release-timeline.html" class="card-link">
+      <div class="card card-timeline">
+        <div class="card-number">02</div>
+        <div class="card-icon">📅</div>
+        <div class="card-title">3-Year Release Timeline</div>
+        <div class="card-desc">All 265 releases organized by quarter with two views — curated Roadmap milestones and the full release log. Filterable by type.</div>
+        <div class="card-tags">
+          <span class="card-tag">INTERACTIVE</span>
+          <span class="card-tag">265 RELEASES</span>
+          <span class="card-tag">FILTERABLE</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- 3. Platform Evolution -->
+    <a href="innago-platform-evolution.html" class="card-link">
+      <div class="card card-evolution">
+        <div class="card-number">03</div>
+        <div class="card-icon">🔄</div>
+        <div class="card-title">Platform Evolution</div>
+        <div class="card-desc">The "From → To" infographic. Seven capability pillars showing exactly how the platform transformed from Jan 2023 to Mar 2026.</div>
+        <div class="card-tags">
+          <span class="card-tag">7 PILLARS</span>
+          <span class="card-tag">BEFORE / AFTER</span>
+          <span class="card-tag">INFOGRAPHIC</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- 4. Capability Maturity -->
+    <a href="innago-capability-maturity.html" class="card-link">
+      <div class="card card-maturity">
+        <div class="card-number">04</div>
+        <div class="card-icon">📊</div>
+        <div class="card-title">Capability Maturity</div>
+        <div class="card-desc">Quarterly heatmap and cumulative growth chart showing how each pillar deepened over 12 quarters. Click any cell to drill into milestones.</div>
+        <div class="card-tags">
+          <span class="card-tag">HEATMAP</span>
+          <span class="card-tag">DRILL-DOWN</span>
+          <span class="card-tag">165 MILESTONES</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- 5. Velocity Dashboard -->
+    <a href="innago-velocity-dashboard.html" class="card-link">
+      <div class="card card-velocity">
+        <div class="card-number">05</div>
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Release Velocity</div>
+        <div class="card-desc">Stacked bar chart showing shipping cadence and composition shift — how the mix evolved from support-heavy to feature-led as the platform matured.</div>
+        <div class="card-tags">
+          <span class="card-tag">STACKED BARS</span>
+          <span class="card-tag">YEAR-OVER-YEAR</span>
+          <span class="card-tag">COMPOSITION</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-text">Innago Engineering Portfolio · Jan 2023 – Mar 2026 · 5 Artifacts</div>
+  <div class="footer-conf">Confidential — For Internal & Investor Use</div>
+</div>
+
+<script>
+// Staggered card entrance
+var cards = document.querySelectorAll('.card-link');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach(function(card, i) {
+  card.style.transitionDelay = (0.1 + i * 0.08) + 's';
+  observer.observe(card);
+});
+
+// Trigger above-fold cards immediately
+setTimeout(function() {
+  cards.forEach(function(card) {
+    var rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      card.classList.add('visible');
+    }
+  });
+}, 50);
+</script>
+
+</body>
+</html>

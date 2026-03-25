@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innago — Engineering Executive Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --innago-blue: #1A56DB;
+  --innago-blue-dark: #0F3A8F;
+  --innago-blue-50: #F5F8FF;
+  --innago-blue-100: #DBEAFE;
+  --innago-blue-200: #BFCFFC;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --rose: #E11D48;
+  --rose-light: #FFF1F2;
+  --purple: #7C3AED;
+  --purple-light: #F3EEFF;
+  --cyan: #0891B2;
+  --cyan-light: #ECFEFF;
+  --indigo: #4F46E5;
+  --indigo-light: #EEF2FF;
+  --amber: #D97706;
+  --amber-light: #FFFBEB;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--white);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Top accent ─── */
+.top-accent {
+  height: 5px;
+  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--purple) 33%, var(--green) 66%, var(--innago-blue) 100%);
+}
+
+/* ─── Container ─── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ─── Header ─── */
+.header {
+  padding: 48px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.1s;
+}
+
+.logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.logo-mark { width: 38px; height: 38px; background: var(--innago-blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 16px; }
+.logo-text { font-size: 20px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.3px; }
+
+.header-right {
+  text-align: right;
+  padding-top: 4px;
+}
+
+.header-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+}
+
+.header-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-top: 4px;
+}
+
+/* ─── Hero ─── */
+.hero {
+  padding: 0 0 40px;
+  border-bottom: 1px solid var(--gray-200);
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.15s;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.hero h1 span { color: var(--innago-blue); }
+
+.hero-narrative {
+  font-size: 17px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+.hero-narrative strong { color: var(--gray-800); font-weight: 700; }
+
+/* ─── Headline Stats ─── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--gray-200);
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.25s;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-num.blue { color: var(--innago-blue); }
+.stat-num.green { color: var(--green); }
+.stat-num.purple { color: var(--purple); }
+.stat-num.amber { color: var(--amber); }
+.stat-num.dark { color: var(--gray-800); }
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ─── Three Eras ─── */
+.eras-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.35s;
+}
+
+.eras-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+.eras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.era-card {
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.era-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.era-1 { background: var(--gray-50); border: 1px solid var(--gray-200); }
+.era-1::before { background: var(--gray-400); }
+
+.era-2 { background: var(--innago-blue-50); border: 1px solid var(--innago-blue-100); }
+.era-2::before { background: var(--innago-blue); }
+
+.era-3 { background: linear-gradient(135deg, var(--innago-blue-50), var(--purple-light)); border: 1px solid var(--innago-blue-100); }
+.era-3::before { background: linear-gradient(90deg, var(--innago-blue), var(--purple)); }
+
+.era-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-400);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.era-name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.era-1 .era-name { color: var(--gray-700); }
+.era-2 .era-name { color: var(--innago-blue); }
+.era-3 .era-name { color: var(--purple); }
+
+.era-desc {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.era-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.era-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--gray-700);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.era-item-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.era-1 .era-item-dot { background: var(--gray-400); }
+.era-2 .era-item-dot { background: var(--innago-blue); }
+.era-3 .era-item-dot { background: var(--purple); }
+
+/* ─── 7 Pillars Summary ─── */
+.pillars-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.45s;
+}
+
+.pillars-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.pillar-card {
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-card:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.pillar-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.pillar-icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.pillar-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.pillar-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.pillar-headline {
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+/* Pillar colors */
+.p-payments .pillar-count { color: var(--green); }
+.p-payments::after { background: var(--green); }
+
+.p-security .pillar-count { color: var(--rose); }
+.p-security::after { background: var(--rose); }
+
+.p-infra .pillar-count { color: var(--purple); }
+.p-infra::after { background: var(--purple); }
+
+.p-tenant .pillar-count { color: var(--innago-blue); }
+.p-tenant::after { background: var(--innago-blue); }
+
+.p-integrations .pillar-count { color: var(--cyan); }
+.p-integrations::after { background: var(--cyan); }
+
+.p-mobile .pillar-count { color: var(--indigo); }
+.p-mobile::after { background: var(--indigo); }
+
+.p-ai .pillar-count { color: var(--amber); }
+.p-ai::after { background: linear-gradient(90deg, var(--innago-blue), var(--purple)); }
+
+/* Span the AI card across remaining columns */
+.pillar-card.p-ai {
+  grid-column: span 1;
+}
+
+/* ─── Velocity strip ─── */
+.velocity-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.55s;
+}
+
+.velocity-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.velocity-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 100px;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.velocity-chart::after {
+  content: '';
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.v-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.v-bar {
+  width: 100%;
+  max-width: 56px;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.v-bar-label {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gray-400);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.v-bar-count {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+/* ─── What's Next ─── */
+.next-section {
+  padding: 40px 0 56px;
+  opacity: 0; animation: fadeIn 0.5s ease forwards 0.65s;
+}
+
+.next-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.next-card {
+  padding: 22px 20px;
+  border-radius: var(--radius-sm);
+  border: 1.5px dashed var(--gray-300);
+  background: var(--gray-50);
+}
+
+.next-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.next-tag.progress { background: var(--amber-light); color: var(--amber); }
+.next-tag.planned { background: var(--innago-blue-50); color: var(--innago-blue); }
+
+.next-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.next-desc {
+  font-size: 12.5px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+/* ─── Footer ─── */
+.footer {
+  border-top: 1px solid var(--gray-200);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.footer-right {
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .page { padding: 0 24px; }
+  .hero h1 { font-size: 32px; }
+  .stats-row { grid-template-columns: repeat(3, 1fr); }
+  .eras-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .next-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 0 16px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .header { flex-direction: column; }
+}
+
+@media print {
+  body { background: white; }
+  .page { max-width: 100%; padding: 0 32px; }
+  * { animation: none !important; opacity: 1 !important; }
+}
+
+/* ─── Shared Nav ─── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E5E7EB;
+  padding: 0 48px;
+}
+.site-nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  gap: 6px;
+  overflow-x: auto;
+}
+.site-nav-home {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1A56DB;
+  text-decoration: none;
+  margin-right: 12px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.site-nav-home .nav-logo {
+  width: 22px; height: 22px;
+  background: #1A56DB; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 10px; font-weight: 800;
+}
+.site-nav-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
+.site-nav-link.active { background: #F5F8FF; color: #1A56DB; }
+@media (max-width: 800px) {
+  .site-nav { padding: 0 16px; }
+  .site-nav-inner { gap: 2px; }
+  .site-nav-link { font-size: 11px; padding: 5px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-accent"></div>
+<nav class="site-nav"><div class="site-nav-inner">
+<a href="index.html" class="site-nav-home"><span class="nav-logo">in</span>Portfolio</a>
+<a href="innago-exec-summary.html" class="site-nav-link active">Summary</a>
+<a href="innago-3yr-release-timeline.html" class="site-nav-link ">Timeline</a>
+<a href="innago-platform-evolution.html" class="site-nav-link ">Evolution</a>
+<a href="innago-capability-maturity.html" class="site-nav-link ">Maturity</a>
+<a href="innago-velocity-dashboard.html" class="site-nav-link ">Velocity</a>
+</div></nav>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="logo-row">
+        <div class="logo-mark">in</div>
+        <span class="logo-text">innago</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-badge">ENGINEERING EXECUTIVE SUMMARY</div>
+      <div class="header-date">Jan 2023 — Mar 2026</div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Three Years.<br><span>One Platform.</span></h1>
+    <p class="hero-narrative">
+      In 39 months, Innago's engineering org shipped <strong>265 production releases</strong> — transforming from an early-stage property management tool into a <strong>modern, secure, cloud-native platform</strong> with 15+ integrations, enterprise-grade identity, smart payment routing, and the foundation for AI-driven operations. This is the execution story.
+    </p>
+  </div>
+
+  <!-- Headline Stats -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num blue">265</div>
+      <div class="stat-label">Releases Shipped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num green">174</div>
+      <div class="stat-label">Features Delivered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num purple">165</div>
+      <div class="stat-label">Platform Milestones</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num dark">13</div>
+      <div class="stat-label">Consecutive Quarters</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num amber">~7</div>
+      <div class="stat-label">Releases / Month</div>
+    </div>
+  </div>
+
+  <!-- Three Eras -->
+  <div class="eras-section">
+    <div class="eras-title">The Arc — Three Eras of Investment</div>
+    <div class="eras-grid">
+
+      <div class="era-card era-1">
+        <div class="era-period">2023 · 69 releases</div>
+        <div class="era-name">Foundation</div>
+        <div class="era-desc">Stabilized the core, modernized infrastructure, and established the integration layer.</div>
+        <div class="era-highlights">
+          <div class="era-item"><span class="era-item-dot"></span>Kubernetes deployment + .NET 6 upgrade</div>
+          <div class="era-item"><span class="era-item-dot"></span>Zillow & RentalSource syndication</div>
+          <div class="era-item"><span class="era-item-dot"></span>Chat system, 2FA, Tenant WebView</div>
+          <div class="era-item"><span class="era-item-dot"></span>Kount fraud detection + Socure KYC</div>
+          <div class="era-item"><span class="era-item-dot"></span>Redis & monitoring on Kubernetes</div>
+        </div>
+      </div>
+
+      <div class="era-card era-2">
+        <div class="era-period">2024 · 93 releases</div>
+        <div class="era-name">Scale</div>
+        <div class="era-desc">Accelerated feature delivery, deepened integrations, and migrated to cloud infrastructure.</div>
+        <div class="era-highlights">
+          <div class="era-item"><span class="era-item-dot"></span>Smart Search & Multifilters across all modules</div>
+          <div class="era-item"><span class="era-item-dot"></span>QuickBooks, Brevo, HubSpot, Heap integrations</div>
+          <div class="era-item"><span class="era-item-dot"></span>Livable payment processor + Autopay</div>
+          <div class="era-item"><span class="era-item-dot"></span>AWS migration from data center</div>
+          <div class="era-item"><span class="era-item-dot"></span>React Native 0.72 + mobile module expansion</div>
+        </div>
+      </div>
+
+      <div class="era-card era-3">
+        <div class="era-period">2025–26 · 103 releases</div>
+        <div class="era-name">Intelligence</div>
+        <div class="era-desc">Enterprise-grade security, smart payment routing, and the AI/analytics foundation for what's next.</div>
+        <div class="era-highlights">
+          <div class="era-item"><span class="era-item-dot"></span>Auth0 — ~300K users migrated, passwordless login</div>
+          <div class="era-item"><span class="era-item-dot"></span>Hyperswitch smart payment routing</div>
+          <div class="era-item"><span class="era-item-dot"></span>Full AWS EKS + GitHub CI/CD standardization</div>
+          <div class="era-item"><span class="era-item-dot"></span>Experian + Transunion credit reporting</div>
+          <div class="era-item"><span class="era-item-dot"></span>Snowflake data warehouse + AI agents (in progress)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 7 Pillars -->
+  <div class="pillars-section">
+    <div class="pillars-title">Investment Across 7 Platform Pillars</div>
+    <div class="pillars-grid">
+
+      <div class="pillar-card p-tenant">
+        <div class="pillar-icon">🏠</div>
+        <div class="pillar-name">Tenant Experience</div>
+        <div class="pillar-count">43 milestones</div>
+        <div class="pillar-headline">Smart Search, Maintenance module, Credit Reporting, WebView, damage reports, rent splitting</div>
+      </div>
+
+      <div class="pillar-card p-infra">
+        <div class="pillar-icon">⚙️</div>
+        <div class="pillar-name">Infrastructure</div>
+        <div class="pillar-count">30 milestones</div>
+        <div class="pillar-headline">Data center → AWS EKS, GitHub pipelines, Redis/RabbitMQ on K8s, .NET modernization</div>
+      </div>
+
+      <div class="pillar-card p-payments">
+        <div class="pillar-icon">💳</div>
+        <div class="pillar-name">Payments & Fintech</div>
+        <div class="pillar-count">28 milestones</div>
+        <div class="pillar-headline">Hyperswitch routing, Livable, 1-day settlements, Kount fraud, autopay, rent split</div>
+      </div>
+
+      <div class="pillar-card p-security">
+        <div class="pillar-icon">🛡</div>
+        <div class="pillar-name">Identity & Security</div>
+        <div class="pillar-count">26 milestones</div>
+        <div class="pillar-headline">Auth0 (300K migrated), MFA everywhere, Socure KYC, breach detection, passwordless</div>
+      </div>
+
+      <div class="pillar-card p-integrations">
+        <div class="pillar-icon">🔗</div>
+        <div class="pillar-name">Integrations</div>
+        <div class="pillar-count">23 milestones</div>
+        <div class="pillar-headline">QuickBooks, Brevo, HubSpot, Heap, Experian, Transunion, Readyly, Latchel, Zillow v2</div>
+      </div>
+
+      <div class="pillar-card p-ai">
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-name">Analytics & AI</div>
+        <div class="pillar-count">10 milestones + emerging</div>
+        <div class="pillar-headline">Innago Insights, Snowflake + AI Insights, AI agents for support, GA4, Heap analytics</div>
+      </div>
+
+      <div class="pillar-card p-mobile">
+        <div class="pillar-icon">📱</div>
+        <div class="pillar-name">Mobile</div>
+        <div class="pillar-count">5 milestones</div>
+        <div class="pillar-headline">React Native 0.72, Auth0 login, chat, Properties & Maintenance views, 16KB reduction</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Velocity -->
+  <div class="velocity-section">
+    <div class="velocity-title">Shipping Cadence by Quarter</div>
+    <div class="velocity-chart" id="velocityChart"></div>
+  </div>
+
+  <!-- What's Next -->
+  <div class="next-section">
+    <div class="next-title">What's Next — The AI Horizon</div>
+    <div class="next-grid">
+      <div class="next-card">
+        <div class="next-tag progress">IN PROGRESS</div>
+        <div class="next-name">Snowflake AI Insights</div>
+        <div class="next-desc">Centralized data warehouse powering AI-driven analytics, tenant behavior modeling, and predictive insights for landlords.</div>
+      </div>
+      <div class="next-card">
+        <div class="next-tag progress">IN PROGRESS</div>
+        <div class="next-name">AI Support Agents</div>
+        <div class="next-desc">Freshdesk tickets triaged and resolved by AI agents — automated diagnosis, fix execution, with human review gates.</div>
+      </div>
+      <div class="next-card">
+        <div class="next-tag planned">UP NEXT</div>
+        <div class="next-name">Platform Intelligence Layer</div>
+        <div class="next-desc">AI-first approach across the product — from smart maintenance routing to automated lease recommendations and payment predictions.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">Innago Engineering · Executive Summary · Confidential</div>
+    <div class="footer-right">265 releases · 165 milestones · 7 pillars · 13 quarters</div>
+  </div>
+
+</div>
+
+<script>
+// Velocity chart
+const quarterData = [
+  { q: "Q1 '23", count: 11 },
+  { q: "Q2 '23", count: 29 },
+  { q: "Q3 '23", count: 11 },
+  { q: "Q4 '23", count: 27 },
+  { q: "Q1 '24", count: 26 },
+  { q: "Q2 '24", count: 27 },
+  { q: "Q3 '24", count: 23 },
+  { q: "Q4 '24", count: 23 },
+  { q: "Q1 '25", count: 33 },
+  { q: "Q2 '25", count: 25 },
+  { q: "Q3 '25", count: 19 },
+  { q: "Q4 '25", count: 18 },
+  { q: "Q1 '26", count: 19 }
+];
+
+const maxCount = Math.max(...quarterData.map(d => d.count));
+
+document.getElementById('velocityChart').innerHTML = quarterData.map(function(d) {
+  var pct = (d.count / maxCount) * 100;
+  var opacity = 0.45 + (pct / 100) * 0.55;
+  return '<div class="v-bar-group">' +
+    '<div class="v-bar" style="height:' + pct + '%;background:#1A56DB;opacity:' + opacity + '">' +
+    '<span class="v-bar-count">' + d.count + '</span>' +
+    '<span class="v-bar-label">' + d.q + '</span>' +
+    '</div></div>';
+}).join('');
+</script>
+
+</body>
+</html>
