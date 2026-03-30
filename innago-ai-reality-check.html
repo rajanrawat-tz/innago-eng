@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Innago — AI in Engineering: The Real Picture</title>
+<title>Innago — AI in Engineering</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -27,8 +27,6 @@
   --green-light: #ECFDF5;
   --rose: #E11D48;
   --rose-light: #FFF1F2;
-  --purple: #7C3AED;
-  --purple-light: #F3EEFF;
   --cyan: #0891B2;
   --cyan-light: #ECFEFF;
   --indigo: #4F46E5;
@@ -53,7 +51,7 @@ body {
 
 .top-accent {
   height: 5px;
-  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--purple) 33%, var(--green) 66%, var(--innago-blue) 100%);
+  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--green) 50%, var(--innago-blue) 100%);
 }
 
 .page { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
@@ -124,7 +122,6 @@ body {
 
 .stat-num.blue { color: var(--innago-blue); }
 .stat-num.green { color: var(--green); }
-.stat-num.purple { color: var(--purple); }
 .stat-num.amber { color: var(--amber); }
 .stat-num.dark { color: var(--gray-800); }
 
@@ -157,8 +154,7 @@ body {
 .section-heading span { color: var(--innago-blue); }
 .section-heading .green { color: var(--green); }
 .section-heading .amber { color: var(--amber); }
-.section-heading .rose { color: var(--rose); }
-.section-heading .purple { color: var(--purple); }
+.section-heading .cyan { color: var(--cyan); }
 
 .section-desc {
   font-size: 15px;
@@ -168,289 +164,6 @@ body {
 }
 
 .section-desc strong { color: var(--gray-800); font-weight: 700; }
-
-/* ─── Framing Section ─── */
-.framing-section {
-  padding: 40px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.framing-visual {
-  display: grid;
-  grid-template-columns: 1fr 48px 1fr;
-  align-items: stretch;
-  gap: 0;
-  margin-top: 28px;
-}
-
-.framing-box {
-  border-radius: var(--radius);
-  padding: 28px 24px;
-}
-
-.framing-box.left {
-  background: var(--rose-light);
-  border: 1px solid rgba(225,29,72,0.12);
-}
-
-.framing-box.right {
-  background: var(--green-light);
-  border: 1px solid rgba(5,150,105,0.12);
-}
-
-.framing-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-.framing-box.left .framing-label { color: var(--rose); }
-.framing-box.right .framing-label { color: var(--green); }
-
-.framing-item {
-  font-size: 14px;
-  color: var(--gray-700);
-  line-height: 1.55;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-.framing-item:last-child { border-bottom: none; }
-
-.framing-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: var(--gray-300);
-  font-weight: 300;
-}
-
-/* ─── Composition Bars ─── */
-.comp-section {
-  padding: 40px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.comp-bars {
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.comp-row {
-  display: grid;
-  grid-template-columns: 200px 1fr 90px;
-  align-items: center;
-  gap: 16px;
-}
-
-.comp-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--gray-800);
-}
-
-.comp-name small {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--gray-500);
-  margin-top: 2px;
-}
-
-.comp-track {
-  height: 34px;
-  background: var(--gray-100);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.comp-fill {
-  height: 100%;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  padding-left: 14px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--white);
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
-}
-
-.comp-fill.feat { background: linear-gradient(90deg, var(--innago-blue), #60A5FA); }
-.comp-fill.support { background: linear-gradient(90deg, var(--amber), #FBBF24); }
-.comp-fill.infra { background: linear-gradient(90deg, var(--purple), #A78BFA); }
-
-.comp-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 20px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.comp-badge.active { background: var(--green-light); color: var(--green); }
-.comp-badge.partial { background: var(--amber-light); color: var(--amber); }
-.comp-badge.blocked { background: var(--rose-light); color: var(--rose); }
-
-/* ─── Why Cards ─── */
-.why-section {
-  padding: 40px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.why-card {
-  padding: 24px 22px;
-  border-radius: var(--radius);
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  transition: all .2s;
-}
-
-.why-card:hover {
-  border-color: var(--gray-300);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.why-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 14px;
-}
-
-.why-icon.legacy { background: var(--amber-light); }
-.why-icon.infra { background: var(--purple-light); }
-.why-icon.context { background: var(--rose-light); }
-
-.why-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: 8px;
-}
-
-.why-text {
-  font-size: 13px;
-  color: var(--gray-600);
-  line-height: 1.6;
-}
-
-/* ─── Proof Cards ─── */
-.proof-section {
-  padding: 40px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 24px;
-}
-
-.proof-card {
-  padding: 24px 22px;
-  border-radius: var(--radius);
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  transition: all .2s;
-}
-
-.proof-card:hover {
-  border-color: var(--gray-300);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.proof-card.full { grid-column: span 2; }
-
-.proof-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 10px;
-  display: inline-block;
-  margin-bottom: 12px;
-  letter-spacing: 0.5px;
-}
-
-.proof-tag.live { background: var(--green-light); color: var(--green); }
-.proof-tag.feature { background: var(--innago-blue-50); color: var(--innago-blue); }
-.proof-tag.building { background: var(--amber-light); color: var(--amber); }
-.proof-tag.ops { background: var(--purple-light); color: var(--purple); }
-
-.proof-name {
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-  color: var(--gray-900);
-  margin-bottom: 6px;
-}
-
-.proof-desc {
-  font-size: 13px;
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.proof-desc strong { color: var(--gray-800); font-weight: 700; }
-
-.proof-metrics {
-  display: flex;
-  gap: 10px;
-}
-
-.proof-metric {
-  flex: 1;
-  text-align: center;
-  padding: 10px 8px;
-  background: var(--gray-50);
-  border-radius: 8px;
-  border: 1px solid var(--gray-100);
-}
-
-.proof-metric-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--gray-800);
-}
-
-.proof-metric-label {
-  font-size: 10px;
-  color: var(--gray-500);
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
 
 /* ─── Adoption Detail ─── */
 .adoption-section {
@@ -540,6 +253,171 @@ body {
   font-size: 13px;
 }
 
+/* ─── Composition Bars ─── */
+.comp-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.comp-bars {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comp-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+}
+
+.comp-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.comp-name small {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+
+.comp-track {
+  height: 34px;
+  background: var(--gray-100);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.comp-fill {
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+
+.comp-fill.feat { background: linear-gradient(90deg, var(--innago-blue), #60A5FA); }
+.comp-fill.support { background: linear-gradient(90deg, var(--amber), #FBBF24); }
+.comp-fill.infra { background: linear-gradient(90deg, var(--cyan), #67E8F9); }
+
+.comp-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.comp-badge.active { background: var(--green-light); color: var(--green); }
+.comp-badge.partial { background: var(--amber-light); color: var(--amber); }
+.comp-badge.blocked { background: var(--gray-100); color: var(--gray-500); }
+
+/* ─── Proof Cards ─── */
+.proof-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.proof-card {
+  padding: 24px 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  transition: all .2s;
+}
+
+.proof-card:hover {
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.proof-card.full { grid-column: span 2; }
+
+.proof-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.proof-tag.live { background: var(--green-light); color: var(--green); }
+.proof-tag.feature { background: var(--innago-blue-50); color: var(--innago-blue); }
+.proof-tag.building { background: var(--amber-light); color: var(--amber); }
+.proof-tag.ops { background: var(--indigo-light); color: var(--indigo); }
+
+.proof-name {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+
+.proof-desc {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.proof-desc strong { color: var(--gray-800); font-weight: 700; }
+
+.proof-metrics {
+  display: flex;
+  gap: 10px;
+}
+
+.proof-metric {
+  flex: 1;
+  text-align: center;
+  padding: 10px 8px;
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-100);
+}
+
+.proof-metric-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.proof-metric-label {
+  font-size: 10px;
+  color: var(--gray-500);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* ─── Timeline ─── */
 .timeline-section {
   padding: 40px 0;
@@ -559,7 +437,7 @@ body {
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: linear-gradient(to bottom, var(--innago-blue), var(--green), var(--purple), var(--amber));
+  background: linear-gradient(to bottom, var(--innago-blue), var(--green), var(--cyan), var(--amber));
   border-radius: 1px;
 }
 
@@ -583,7 +461,7 @@ body {
 
 .tl-dot.blue { background: var(--innago-blue); }
 .tl-dot.green { background: var(--green); }
-.tl-dot.purple { background: var(--purple); }
+.tl-dot.cyan { background: var(--cyan); }
 .tl-dot.amber { background: var(--amber); }
 
 .tl-when {
@@ -615,7 +493,7 @@ body {
 }
 
 .bottom-card {
-  background: linear-gradient(135deg, var(--innago-blue-50), var(--purple-light));
+  background: linear-gradient(135deg, var(--innago-blue-50), var(--green-light));
   border: 1px solid var(--innago-blue-100);
   border-radius: var(--radius);
   padding: 48px 40px;
@@ -631,7 +509,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--innago-blue), var(--purple), var(--green));
+  background: linear-gradient(90deg, var(--innago-blue), var(--green), var(--innago-blue));
 }
 
 .bottom-label {
@@ -709,11 +587,8 @@ body {
   .page { padding: 0 20px; }
   .hero h1 { font-size: 30px; }
   .stats-row { grid-template-columns: repeat(3, 1fr); }
-  .framing-visual { grid-template-columns: 1fr; gap: 16px; }
-  .framing-arrow { transform: rotate(90deg); }
   .proof-grid { grid-template-columns: 1fr; }
   .proof-card.full { grid-column: span 1; }
-  .why-grid { grid-template-columns: 1fr; }
   .comp-row { grid-template-columns: 1fr; gap: 6px; }
   .adoption-visual { grid-template-columns: 1fr; }
   .donut-wrap { margin: 0 auto; }
@@ -808,8 +683,8 @@ body {
 
   <!-- ═══ HERO ═══ -->
   <div class="hero">
-    <h1>If you think we're not<br><span>moving fast enough</span><br>or not <span class="green">embracing AI</span> —<br>here's the full picture.</h1>
-    <p class="hero-narrative">There's a fair question on the table: <strong>is the team keeping pace, and is AI actually making a difference?</strong> This document puts the data alongside the feeling. It shows where AI is actively accelerating our work, where it structurally can't yet, and exactly what we're doing to close that gap. The short version: <strong>adoption isn't the bottleneck — the nature of the work is.</strong></p>
+    <h1>How engineering<br>uses <span>AI</span> today —<br>and where we're<br>headed <span class="green">next</span>.</h1>
+    <p class="hero-narrative">A snapshot of AI adoption across the engineering team — the tools we use, the work they accelerate, the results so far, and the plan to expand AI into more of what we do. <strong>This is where we are as of March 2026.</strong></p>
   </div>
 
   <!-- ═══ HEADLINE STATS ═══ -->
@@ -823,7 +698,7 @@ body {
       <div class="stat-label">AI Tools Active</div>
     </div>
     <div class="stat">
-      <div class="stat-num purple">1.5–2×</div>
+      <div class="stat-num dark">1.5–2×</div>
       <div class="stat-label">Speed on AI Work</div>
     </div>
     <div class="stat">
@@ -832,155 +707,15 @@ body {
     </div>
     <div class="stat">
       <div class="stat-num dark">2</div>
-      <div class="stat-label">Production Automations</div>
+      <div class="stat-label">Live Automations</div>
     </div>
   </div>
 
-  <!-- ═══ THE REAL PICTURE ═══ -->
-  <div class="framing-section reveal">
-    <div class="section-label">Let's look at both sides</div>
-    <div class="section-heading">The concern makes sense.<br>The <span class="green">data tells a different story</span>.</div>
-    <p class="section-desc">When delivery feels slower than expected, it's natural to question whether we're leveraging every advantage we have. That's a fair instinct — and we want to answer it with specifics, because the numbers paint a picture that the sprint-by-sprint view can miss.</p>
-
-    <div class="framing-visual">
-      <div class="framing-box left">
-        <div class="framing-label">The concern</div>
-        <div class="framing-item">❌ &nbsp;Delivery feels slower than it should</div>
-        <div class="framing-item">❌ &nbsp;AI doesn't seem to be changing the pace</div>
-        <div class="framing-item">❌ &nbsp;Other companies appear to be moving faster</div>
-        <div class="framing-item">❌ &nbsp;Sprint output isn't visibly increasing</div>
-      </div>
-
-      <div class="framing-arrow">→</div>
-
-      <div class="framing-box right">
-        <div class="framing-label">What the data shows</div>
-        <div class="framing-item">✓ &nbsp;60% of the team uses AI tools every day</div>
-        <div class="framing-item">✓ &nbsp;3 features built with AI — 1 live, 1 nearing release, 1 in progress</div>
-        <div class="framing-item">✓ &nbsp;2 production automations running autonomously</div>
-        <div class="framing-item">✓ &nbsp;~40% of effort goes to legacy & support — where AI can't yet operate</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ WORK COMPOSITION ═══ -->
-  <div class="comp-section reveal">
-    <div class="section-label">Where the effort actually goes</div>
-    <div class="section-heading">Not all work is <span>AI-ready</span> — yet</div>
-    <p class="section-desc">AI is delivering <strong>1.5–2× speed improvement</strong> on the work it can reach. But a significant share of engineering effort goes into legacy support and infrastructure — domains where AI agents don't yet have the end-to-end context to be effective. <strong>This is the structural reason velocity looks lower than expected, not a lack of adoption.</strong></p>
-
-    <div class="comp-bars">
-      <div class="comp-row">
-        <div class="comp-name">New Features<small>PO, Tenant, Fintech, Mobile teams</small></div>
-        <div class="comp-track"><div class="comp-fill feat" data-width="35%">~35%</div></div>
-        <div class="comp-badge active">AI Active</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-name">Support & Legacy<small>Bug fixes, data issues, SL1 escalations</small></div>
-        <div class="comp-track"><div class="comp-fill support" data-width="40%">~40%</div></div>
-        <div class="comp-badge blocked">AI Blocked</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-name">Infra & DevSecOps<small>K8s, pipelines, security, auth, compliance</small></div>
-        <div class="comp-track"><div class="comp-fill infra" data-width="25%">~25%</div></div>
-        <div class="comp-badge partial">Partial AI</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ WHY AI CAN'T REACH IT YET ═══ -->
-  <div class="why-section reveal">
-    <div class="section-label">Three structural reasons</div>
-    <div class="section-heading">Why <span class="amber">65% of the work</span> resists AI acceleration</div>
-    <p class="section-desc">These aren't adoption failures — they're <strong>context problems</strong>. AI tools are only as effective as the information they can access. In these domains, they simply can't access enough to operate autonomously.</p>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon legacy">⚙️</div>
-        <div class="why-name">Legacy Microservice Sprawl</div>
-        <div class="why-text">Our codebase spans dozens of microservices across separate domains and repositories. Support and bug work requires tracing issues across service boundaries — cross-service context that no AI tool can yet ingest end-to-end. Engineers must manually connect the dots between services, databases, and queues before AI can help.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon infra">🔒</div>
-        <div class="why-name">Infrastructure Complexity</div>
-        <div class="why-text">DevSecOps and infra work (Kubernetes, CI/CD, auth, security, compliance) operates across config layers, cloud APIs, and live runtime state. AI tools don't have access to cluster state, secrets management, or the full infrastructure graph needed to automate reliably. This work demands real-time system awareness that AI tooling can't provide yet.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon context">🧩</div>
-        <div class="why-name">No End-to-End Agent Context</div>
-        <div class="why-text">AI agents need connected context — database state, queue state, service topology, ticket history, customer data. Our support and infrastructure layers don't yet have the MCP integrations or agent tooling to give AI the full picture it needs. This is precisely what we're building now (see the roadmap below).</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ PROOF POINTS ═══ -->
-  <div class="proof-section reveal">
-    <div class="section-label">Evidence, not promises</div>
-    <div class="section-heading">Where AI <span class="green">is</span> delivering — <span>right now</span></div>
-    <p class="section-desc">These aren't pilots or demos. These are <strong>production features, live automations, and real incident recovery</strong> — all AI-assisted, all passing our standard QA and code review gates.</p>
-
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-tag live">LIVE IN PRODUCTION</div>
-        <div class="proof-name">Accelerent Integration</div>
-        <div class="proof-desc">New payment integration built end-to-end with AI tooling — from initial scaffolding through implementation to production deployment. Now live and processing. Proof that AI-assisted development delivers production-grade work at speed on our actual codebase.</div>
-        <div class="proof-metrics">
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">Live</div><div class="proof-metric-label">In Production</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
-          <div class="proof-metric"><div class="proof-metric-num">1.5–2×</div><div class="proof-metric-label">Faster</div></div>
-        </div>
-      </div>
-
-      <div class="proof-card">
-        <div class="proof-tag feature">NEARING RELEASE</div>
-        <div class="proof-name">PO / Landlord Onboarding</div>
-        <div class="proof-desc">A complete new onboarding experience built with AI-assisted development throughout. Faster iteration cycles, quicker turnaround on design changes, production-quality code passing standard review gates. Nearing release — final QA and staging validation in progress.</div>
-        <div class="proof-metrics">
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Final</div><div class="proof-metric-label">Nearing Release</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
-        </div>
-      </div>
-
-      <div class="proof-card">
-        <div class="proof-tag building">ACTIVELY BUILDING</div>
-        <div class="proof-name">Refer & Earn (In-House)</div>
-        <div class="proof-desc">Replacing our third-party dependency (ProAffiliatePartners) with a bespoke in-house solution. Currently being built with AI-assisted development — moving from external dependency to full ownership. The same development approach that shipped Accelerent and PO Onboarding.</div>
-        <div class="proof-metrics">
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--amber)">Active</div><div class="proof-metric-label">In Progress</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
-        </div>
-      </div>
-
-      <div class="proof-card">
-        <div class="proof-tag ops">LIVE — AUTONOMOUS</div>
-        <div class="proof-name">Intelligent Security Surveillance</div>
-        <div class="proof-desc">A Kubernetes CronJob using MCP hits the Snowflake data warehouse daily, identifies anomalies, generates "Top 5 Suspicious Users" team alerts, pushes full reports to S3, and delivers pre-signed URIs for zero-trust access. Runs every day with zero human intervention — scales to any data volume.</div>
-        <div class="proof-metrics">
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">100%</div><div class="proof-metric-label">Automated</div></div>
-          <div class="proof-metric"><div class="proof-metric-num">0 min</div><div class="proof-metric-label">Daily Effort</div></div>
-          <div class="proof-metric"><div class="proof-metric-num">∞</div><div class="proof-metric-label">Scale</div></div>
-        </div>
-      </div>
-
-      <div class="proof-card full">
-        <div class="proof-tag ops">LIVE — INCIDENT RESPONSE</div>
-        <div class="proof-name">RabbitMQ Payment Event Recovery</div>
-        <div class="proof-desc">A production payments incident left 200+ events stuck across 10+ error queues. The normal recovery: hours of manual copy-paste-publish-purge across every queue. Using the Claude AI Chrome Extension, the entire workflow was automated end-to-end — identify queues, fetch messages, match exchanges, publish, verify, purge. <strong>Minutes instead of hours. Zero missed messages.</strong> A human spotted the problem; AI executed the fix. That's the model — human judgment, AI execution.</div>
-        <div class="proof-metrics">
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">200+</div><div class="proof-metric-label">Events Recovered</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">10+</div><div class="proof-metric-label">Queues Processed</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">0</div><div class="proof-metric-label">Missed Messages</div></div>
-          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--purple)">Mins</div><div class="proof-metric-label">vs. Hours</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ ADOPTION DETAIL ═══ -->
+  <!-- ═══ ADOPTION SNAPSHOT ═══ -->
   <div class="adoption-section reveal">
-    <div class="section-label">Adoption snapshot</div>
-    <div class="section-heading">The team <span>is</span> using AI — here's the breakdown</div>
-    <p class="section-desc">We're past the early-adopter phase. The majority of the team uses AI tools daily, and a core group of power users is driving advanced use cases — agents, operational automation, and full AI-driven feature builds. The remaining gap is licensing access, not willingness.</p>
+    <div class="section-label">Adoption</div>
+    <div class="section-heading">AI usage across the <span>team</span></div>
+    <p class="section-desc">The majority of the team uses AI tools daily. A core group of power users drives advanced use cases — agents, operational automation, and full AI-driven feature builds. The remaining gap is primarily licensing and provisioning, which we're resolving.</p>
 
     <div class="adoption-visual">
       <div class="donut-wrap">
@@ -1011,57 +746,145 @@ body {
           <span class="adoption-val">Copilot · Claude · ChatGPT · Lovable</span>
         </div>
         <div class="adoption-row">
-          <span class="adoption-label">Production Automations Running</span>
-          <span class="adoption-val" style="color:var(--green)">2 (autonomous, zero human effort)</span>
+          <span class="adoption-label">Live Production Automations</span>
+          <span class="adoption-val" style="color:var(--green)">2 — running autonomously, zero human effort</span>
         </div>
         <div class="adoption-row">
           <span class="adoption-label">Remaining Gap</span>
-          <span class="adoption-val" style="color:var(--amber)">35–40% — blocked on licensing, not on willingness</span>
+          <span class="adoption-val" style="color:var(--amber)">35–40% — blocked on licensing, not willingness</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ CLOSING THE GAP ═══ -->
+  <!-- ═══ EFFORT DISTRIBUTION ═══ -->
+  <div class="comp-section reveal">
+    <div class="section-label">Effort distribution</div>
+    <div class="section-heading">Where engineering time goes —<br>and where <span>AI fits in</span></div>
+    <p class="section-desc">AI delivers <strong>1.5–2× speed improvement</strong> on new feature development. Support, legacy, and infrastructure work make up the majority of engineering effort — these domains require cross-service and infrastructure context that AI tooling can't yet access end-to-end.</p>
+
+    <div class="comp-bars">
+      <div class="comp-row">
+        <div class="comp-name">New Features<small>PO, Tenant, Fintech, Mobile teams</small></div>
+        <div class="comp-track"><div class="comp-fill feat" data-width="35%">~35%</div></div>
+        <div class="comp-badge active">AI Active</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-name">Support & Legacy<small>Bug fixes, data issues, SL1 escalations</small></div>
+        <div class="comp-track"><div class="comp-fill support" data-width="40%">~40%</div></div>
+        <div class="comp-badge blocked">Not Yet AI-Ready</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-name">Infra & DevSecOps<small>K8s, pipelines, security, auth</small></div>
+        <div class="comp-track"><div class="comp-fill infra" data-width="25%">~25%</div></div>
+        <div class="comp-badge partial">Partial AI</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ WHAT AI HAS DELIVERED ═══ -->
+  <div class="proof-section reveal">
+    <div class="section-label">AI-Assisted Delivery</div>
+    <div class="section-heading">What AI has <span class="green">shipped</span> and what's <span>in the pipeline</span></div>
+    <p class="section-desc">Three features built with AI-assisted development, two production automations running live. These passed our standard QA and code review gates — production-grade output, not experiments.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-tag live">LIVE IN PRODUCTION</div>
+        <div class="proof-name">Accelerent Integration</div>
+        <div class="proof-desc">New payment integration built end-to-end with AI tooling — from initial scaffolding through implementation to production deployment. Now live and processing transactions.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">Live</div><div class="proof-metric-label">In Production</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
+          <div class="proof-metric"><div class="proof-metric-num">1.5–2×</div><div class="proof-metric-label">Faster</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-tag feature">NEARING RELEASE</div>
+        <div class="proof-name">PO / Landlord Onboarding</div>
+        <div class="proof-desc">Complete new onboarding experience built with AI-assisted development throughout. Faster iteration cycles, quicker turnaround on design changes, production-quality code. Final QA and staging validation in progress.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Final</div><div class="proof-metric-label">Nearing Release</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-tag building">ACTIVELY BUILDING</div>
+        <div class="proof-name">Refer & Earn (In-House)</div>
+        <div class="proof-desc">Replacing third-party dependency (ProAffiliatePartners) with a bespoke in-house solution. Currently being built with the same AI-assisted approach that shipped Accelerent and PO Onboarding.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--amber)">Active</div><div class="proof-metric-label">In Progress</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">Full</div><div class="proof-metric-label">AI-Assisted</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card">
+        <div class="proof-tag ops">LIVE — AUTONOMOUS</div>
+        <div class="proof-name">Intelligent Security Surveillance</div>
+        <div class="proof-desc">Kubernetes CronJob using MCP + Snowflake. Runs daily with zero human intervention — identifies anomalies, generates team alerts, pushes reports to S3 with pre-signed URIs. Replaced 1 hour of daily manual SQL and Slack distribution.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">100%</div><div class="proof-metric-label">Automated</div></div>
+          <div class="proof-metric"><div class="proof-metric-num">0 min</div><div class="proof-metric-label">Daily Effort</div></div>
+          <div class="proof-metric"><div class="proof-metric-num">∞</div><div class="proof-metric-label">Scale</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card full">
+        <div class="proof-tag ops">LIVE — INCIDENT RESPONSE</div>
+        <div class="proof-name">RabbitMQ Payment Event Recovery</div>
+        <div class="proof-desc">Production payments incident — 200+ events stuck across 10+ error queues. Using the Claude Chrome Extension, the entire recovery was automated: identify queues, fetch messages, match exchanges, publish, verify, purge. <strong>Minutes instead of hours. Zero missed messages.</strong> Human spotted the problem, AI executed the fix.</div>
+        <div class="proof-metrics">
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">200+</div><div class="proof-metric-label">Events Recovered</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--innago-blue)">10+</div><div class="proof-metric-label">Queues Processed</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--green)">0</div><div class="proof-metric-label">Missed</div></div>
+          <div class="proof-metric"><div class="proof-metric-num" style="color:var(--amber)">Mins</div><div class="proof-metric-label">vs. Hours</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ WHERE WE'RE HEADED ═══ -->
   <div class="timeline-section reveal">
-    <div class="section-label">Closing the gap</div>
-    <div class="section-heading">Bringing AI into the <span class="purple">hard zones</span></div>
-    <p class="section-desc">We're not waiting for the tools to evolve on their own. We're actively building the integrations and agent infrastructure to extend AI into support, infrastructure, and legacy domains — the 65% of work that currently resists acceleration.</p>
+    <div class="section-label">What's next</div>
+    <div class="section-heading">Expanding AI into <span>more of what we do</span></div>
+    <p class="section-desc">The next phase focuses on bringing AI into the domains it can't yet reach — support triage, legacy bug work, and operational automation — while resolving the access and tooling gaps that are limiting broader adoption.</p>
 
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot blue"></div>
         <div class="tl-when">POC Tested · Nearing Production</div>
         <div class="tl-name">MCP for Freshdesk — AI Support Triage</div>
-        <div class="tl-desc">Agent integration for our support ticketing system. AI can now access ticket history, customer context, and resolution patterns. The POC has been tested successfully and we're working toward production readiness. Goal: AI auto-classifies, diagnoses, and proposes fixes for routine support tickets — with a human review gate before action. This directly targets the ~40% of effort spent on support & legacy work.</div>
+        <div class="tl-desc">Agent integration for our support ticketing system. AI accesses ticket history, customer context, and resolution patterns. POC tested successfully — working toward production readiness. Targets the ~40% of engineering effort currently spent on support and legacy work.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot green"></div>
         <div class="tl-when">In Progress · Target Q2 2026</div>
         <div class="tl-name">Agents for Bug Triage & Data Fixes</div>
-        <div class="tl-desc">Connecting AI agents to codebase context and database state so they can trace bugs across microservice boundaries and generate targeted fixes for data-layer issues. This is the bridge that makes the legacy support domain AI-accessible — turning the largest block of "AI-blocked" work into "AI-assisted" work.</div>
+        <div class="tl-desc">Connecting AI agents to codebase context and database state so they can trace bugs across microservice boundaries and generate targeted fixes for data-layer issues. The bridge that makes legacy support work AI-accessible.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot purple"></div>
+        <div class="tl-dot cyan"></div>
         <div class="tl-when">Target: April 2026</div>
         <div class="tl-name">Standardized Toolchain + Full Licensing</div>
-        <div class="tl-desc">Resolving provisioning blockers so every engineer has AI tools. Standardizing recommended tools per role (backend, frontend, QA, DevOps). Removes the last access barrier for the 35–40% of the team currently blocked from fully experimenting.</div>
+        <div class="tl-desc">Resolving provisioning blockers so every engineer has AI tools. Standardizing recommended tools per role. Removes the access barrier for the 35–40% of the team currently unable to fully experiment.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot amber"></div>
         <div class="tl-when">Q2 2026</div>
         <div class="tl-name">Scale Operational Automation</div>
-        <div class="tl-desc">Replicating the Security Surveillance and RabbitMQ patterns to 2–3 more toil-heavy workflows. Expanding AI-assisted incident runbooks beyond individual incidents to systematic, repeatable production operations — reducing manual toil across the entire engineering surface.</div>
+        <div class="tl-desc">Replicating the Security Surveillance and RabbitMQ patterns to 2–3 more toil-heavy workflows. Expanding AI-assisted operations beyond individual incidents to systematic, repeatable production automation.</div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ BOTTOM LINE ═══ -->
+  <!-- ═══ SUMMARY ═══ -->
   <div class="bottom-section reveal">
     <div class="bottom-card">
-      <div class="bottom-label">The bottom line</div>
-      <div class="bottom-headline">The bottleneck isn't <span>adoption</span>.<br>It's the <span class="green">nature of the work</span>.</div>
-      <p class="bottom-text">60% of the team uses AI daily. One AI-built feature is live in production, another is nearing release, and a third is actively being built. Two production automations run autonomously every day. The areas that feel slow — <strong>legacy support and infrastructure</strong> — are structurally harder for AI because agents lack the connected context to operate in those domains. We're actively building that context. The MCP Freshdesk POC is already tested. Agent tooling for bug triage is in progress. <strong>By mid-2026, AI will have a path into the work that currently resists it.</strong></p>
+      <div class="bottom-label">Summary</div>
+      <div class="bottom-headline">AI is <span>embedded</span> in how we work.<br>Now we're <span class="green">expanding its reach</span>.</div>
+      <p class="bottom-text">60% of the team uses AI daily. One AI-built feature is live in production, another is nearing release, and a third is actively being built. Two production automations run autonomously every day. The next phase extends AI into support triage, legacy bug work, and broader operational automation — <strong>the areas where the biggest efficiency gains are still ahead of us.</strong></p>
     </div>
   </div>
 
