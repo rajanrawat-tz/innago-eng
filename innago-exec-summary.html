@@ -62,36 +62,33 @@ body {
 }
 
 /* ─── Header ─── */
-.header {
-  padding: 48px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--gray-200);
-  opacity: 0; animation: fadeIn 0.5s ease forwards 0.1s;
-}
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
 
 .header-badge {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 500;
-  color: var(--gray-500);
-  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  background: var(--innago-blue-50);
+  color: var(--innago-blue);
+  border-radius: 20px;
+  border: 1px solid var(--innago-blue-200);
 }
 
-.header-date {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-top: 4px;
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--innago-blue);
+  font-weight: 500;
+  margin-bottom: 14px;
 }
 
 /* ─── Hero ─── */
-.hero {
-  padding: 0 0 40px;
-  border-bottom: 1px solid var(--gray-200);
-  opacity: 0; animation: fadeIn 0.5s ease forwards 0.15s;
-}
+.hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 24px 48px 40px; }
 
 .hero h1 {
   font-size: 48px;
@@ -583,21 +580,19 @@ body {
 <a href="innago-ai-reality-check.html" class="site-nav-link ">AI Reality</a>
 </div></nav>
 
+<div class="header"><div class="header-inner">
+  <span class="header-badge">Executive Summary · Engineering</span>
+</div></div>
+
+<div class="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">Jan 2023 → Mar 2026</div>
+  <h1>Three Years of<br><span>Engineering Acceleration.</span></h1>
+  <p class="hero-narrative">
+    In the last 39 months, Innago's engineering team shipped <strong>265 production releases</strong> — evolving an established property management platform into a <strong>modern, secure, cloud-native system</strong> with 15+ integrations, enterprise-grade identity, smart payment routing, and the foundation for AI-driven operations. This is the execution story.
+  </p>
+</div></div>
+
 <div class="page">
-
-  <!-- Header -->
-  <div class="header">
-    <span class="header-badge">ENGINEERING EXECUTIVE SUMMARY</span>
-    <span class="header-date">Jan 2023 — Mar 2026</span>
-  </div>
-
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Three Years.<br><span>One Platform.</span></h1>
-    <p class="hero-narrative">
-      In 39 months, Innago's engineering org shipped <strong>265 production releases</strong> — transforming from an early-stage property management tool into a <strong>modern, secure, cloud-native platform</strong> with 15+ integrations, enterprise-grade identity, smart payment routing, and the foundation for AI-driven operations. This is the execution story.
-    </p>
-  </div>
 
   <!-- Headline Stats -->
   <div class="stats-row">
@@ -647,12 +642,12 @@ body {
 
   <!-- Three Eras -->
   <div class="eras-section">
-    <div class="eras-title">The Arc — Three Eras of Investment</div>
+    <div class="eras-title">The Arc — Three Eras of Engineering Investment</div>
     <div class="eras-grid">
 
       <div class="era-card era-1">
         <div class="era-period">2023 · 69 releases</div>
-        <div class="era-name">Foundation</div>
+        <div class="era-name">Modernization</div>
         <div class="era-desc">Stabilized the core, modernized infrastructure, and established the integration layer.</div>
         <div class="era-highlights">
           <div class="era-item"><span class="era-item-dot"></span>Kubernetes deployment + .NET 6 upgrade</div>

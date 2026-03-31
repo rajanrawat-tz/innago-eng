@@ -59,11 +59,8 @@ body {
 .header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--cyan-light); color: var(--cyan); border-radius: 20px; border: 1px solid #A5F3FC; }
 
 /* ─── Hero ─── */
-.hero {
-  padding: 16px 0 40px;
-  border-bottom: 1px solid var(--gray-200);
-  opacity:0; animation: fadeIn .5s ease forwards .15s;
-}
+.hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 24px 48px 40px; }
 
 .hero h1 {
   font-size: 46px;
@@ -690,13 +687,12 @@ body {
   <span class="header-badge">AI in Engineering</span>
 </div></div>
 
-<div class="page">
+<div class="hero"><div class="hero-inner">
+  <h1>How engineering<br>uses <span>AI</span> today —<br>and where we're<br>headed <span class="green">next</span>.</h1>
+  <p class="hero-narrative">A snapshot of AI adoption across the engineering team — the tools we use, the work they accelerate, the results so far, and the plan to expand AI into more of what we do. <strong>This is where we are as of March 2026.</strong></p>
+</div></div>
 
-  <!-- ═══ HERO ═══ -->
-  <div class="hero">
-    <h1>How engineering<br>uses <span>AI</span> today —<br>and where we're<br>headed <span class="green">next</span>.</h1>
-    <p class="hero-narrative">A snapshot of AI adoption across the engineering team — the tools we use, the work they accelerate, the results so far, and the plan to expand AI into more of what we do. <strong>This is where we are as of March 2026.</strong></p>
-  </div>
+<div class="page">
 
   <!-- ═══ HEADLINE STATS ═══ -->
   <div class="stats-row">

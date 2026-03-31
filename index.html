@@ -32,6 +32,9 @@
   --cyan: #0891B2;
   --cyan-light: #ECFEFF;
   --rose: #E11D48;
+  --rose-light: #FFF1F2;
+  --indigo: #4F46E5;
+  --indigo-light: #EEF2FF;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
@@ -249,37 +252,36 @@ body {
   font-size: 16px;
 }
 
-.card:hover .card-arrow {
-  background: var(--innago-blue);
-  border-color: var(--innago-blue);
-  color: white;
-  transform: translateX(2px);
-}
-
 /* Card color variants */
-.card-exec::after { background: linear-gradient(90deg, var(--innago-blue), var(--purple)); }
-.card-exec .card-title { color: var(--innago-blue); }
+.card-exec::after { background: var(--innago-blue); }
+.card-exec .card-title { color: var(--gray-900); }
 .card-exec .card-tag { background: var(--innago-blue-50); color: var(--innago-blue); }
+.card-exec:hover .card-arrow { background: var(--innago-blue); border-color: var(--innago-blue); color: white; transform: translateX(2px); }
 
-.card-timeline::after { background: var(--innago-blue); }
+.card-timeline::after { background: var(--green); }
 .card-timeline .card-title { color: var(--gray-900); }
-.card-timeline .card-tag { background: var(--innago-blue-50); color: var(--innago-blue); }
+.card-timeline .card-tag { background: var(--green-light); color: var(--green); }
+.card-timeline:hover .card-arrow { background: var(--green); border-color: var(--green); color: white; transform: translateX(2px); }
 
-.card-evolution::after { background: var(--green); }
+.card-evolution::after { background: var(--rose); }
 .card-evolution .card-title { color: var(--gray-900); }
-.card-evolution .card-tag { background: var(--green-light); color: var(--green); }
+.card-evolution .card-tag { background: var(--rose-light); color: var(--rose); }
+.card-evolution:hover .card-arrow { background: var(--rose); border-color: var(--rose); color: white; transform: translateX(2px); }
 
-.card-maturity::after { background: var(--purple); }
-.card-maturity .card-title { color: var(--gray-900); }
-.card-maturity .card-tag { background: var(--purple-light); color: var(--purple); }
+.card-effectiveness::after { background: var(--indigo); }
+.card-effectiveness .card-title { color: var(--gray-900); }
+.card-effectiveness .card-tag { background: var(--indigo-light); color: var(--indigo); }
+.card-effectiveness:hover .card-arrow { background: var(--indigo); border-color: var(--indigo); color: white; transform: translateX(2px); }
 
-.card-velocity::after { background: var(--amber); }
-.card-velocity .card-title { color: var(--gray-900); }
-.card-velocity .card-tag { background: var(--amber-light); color: var(--amber); }
+.card-team::after { background: var(--purple); }
+.card-team .card-title { color: var(--gray-900); }
+.card-team .card-tag { background: var(--purple-light); color: var(--purple); }
+.card-team:hover .card-arrow { background: var(--purple); border-color: var(--purple); color: white; transform: translateX(2px); }
 
 .card-ai::after { background: var(--cyan); }
 .card-ai .card-title { color: var(--gray-900); }
 .card-ai .card-tag { background: var(--cyan-light); color: var(--cyan); }
+.card-ai:hover .card-arrow { background: var(--cyan); border-color: var(--cyan); color: white; transform: translateX(2px); }
 
 /* ─── Footer ─── */
 .footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
@@ -318,7 +320,7 @@ body {
   <div class="hero-inner">
     <img src="https://innago.com/public/logos/innago-logo-blue.svg" alt="innago" class="logo-img">
     <h1>Engineering<br><span>Portfolio</span></h1>
-    <p class="hero-sub">3 years of platform evolution — 265 releases, 7 capability pillars, 13 consecutive quarters of shipping. Explore the full execution story.</p>
+    <p class="hero-sub">The last 3 years of platform evolution — 265 releases, 7 capability pillars, 13 consecutive quarters of shipping. Explore the full execution story.</p>
     <div class="quick-stats">
       <div class="qs"><span class="qs-num">265</span><span class="qs-label">Releases</span></div>
       <div class="qs"><span class="qs-num">174</span><span class="qs-label">Features</span></div>
@@ -338,11 +340,11 @@ body {
         <div class="card-number">01 — START HERE</div>
         <div class="card-icon">📋</div>
         <div class="card-title">Executive Summary</div>
-        <div class="card-desc">The one-pager. Three eras of investment (Foundation → Scale → Intelligence), 7 pillars at a glance, headline stats, and what's next with AI. The entry point for any investor conversation.</div>
+        <div class="card-desc">The one-pager. Three eras of investment (Modernization → Scale → Intelligence), 7 pillars at a glance, headline stats, and what's next with AI. Start here.</div>
         <div class="card-tags">
-          <span class="card-tag">ONE-PAGER</span>
-          <span class="card-tag">INVESTOR-READY</span>
-          <span class="card-tag">PRINT-FRIENDLY</span>
+          <span class="card-tag">HEADLINE STATS</span>
+          <span class="card-tag">3 ERAS</span>
+          <span class="card-tag">PLATFORM SCALE</span>
         </div>
         <div class="card-arrow">→</div>
       </div>
@@ -382,7 +384,7 @@ body {
 
     <!-- 4. Engineering Effectiveness (DORA) -->
     <a href="innago-engineering-effectiveness.html" class="card-link">
-      <div class="card card-velocity">
+      <div class="card card-effectiveness">
         <div class="card-number">04</div>
         <div class="card-icon">⚡</div>
         <div class="card-title">Engineering Effectiveness</div>
@@ -398,7 +400,7 @@ body {
 
     <!-- 5. Team & Roadmap -->
     <a href="innago-team-roadmap.html" class="card-link">
-      <div class="card card-velocity">
+      <div class="card card-team">
         <div class="card-number">05</div>
         <div class="card-icon">👥</div>
         <div class="card-title">Team & Roadmap</div>

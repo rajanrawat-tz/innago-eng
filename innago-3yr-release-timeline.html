@@ -31,6 +31,10 @@
   --gray-800: #1F2937;
   --gray-900: #111827;
 
+  /* Accent colors */
+  --green: #059669;
+  --green-light: #ECFDF5;
+
   /* Semantic colors */
   --feature: #3498DB;
   --infra: #7C3AED;
@@ -70,20 +74,8 @@ body {
 }
 
 /* ─── Header ─── */
-.header {
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 0 48px;
-}
-
-.header-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
 
 
 .header-badge {
@@ -91,10 +83,10 @@ body {
   font-size: 11px;
   font-weight: 500;
   padding: 5px 12px;
-  background: var(--innago-blue-50);
-  color: var(--innago-blue);
+  background: var(--green-light);
+  color: var(--green);
   border-radius: 20px;
-  border: 1px solid var(--innago-blue-200);
+  border: 1px solid #D1FAE5;
 }
 
 /* ─── Hero ─── */
@@ -104,9 +96,9 @@ body {
 }
 
 .hero-inner {
-  max-width: 1320px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 56px 48px 48px;
+  padding: 24px 48px 40px;
 }
 
 .hero-eyebrow {
@@ -114,7 +106,7 @@ body {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--innago-blue);
+  color: var(--green);
   font-weight: 500;
   margin-bottom: 14px;
   opacity: 0;
@@ -698,8 +690,8 @@ body {
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Jan 2023 → Mar 2026</div>
-    <h1>3 Years of <span>Building</span></h1>
-    <p class="hero-sub">265 production releases shipping features, infrastructure upgrades, and platform improvements across 13 quarters — a consistent cadence of execution that transformed Innago's technology foundation.</p>
+    <h1>The Last 3 Years of <span>Engineering</span></h1>
+    <p class="hero-sub">265 production releases shipping features, infrastructure upgrades, and platform improvements across 13 quarters — a consistent cadence of execution that accelerated Innago's technology foundation.</p>
   </div>
 </div>
 

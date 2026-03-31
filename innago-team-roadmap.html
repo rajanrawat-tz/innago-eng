@@ -56,7 +56,7 @@ body {
 .header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--purple-light); color: var(--purple); border-radius: 20px; border: 1px solid #DDD6FE; }
 
 .hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
-.hero-inner { max-width: 1200px; margin: 0 auto; padding: 48px 48px 40px; }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 24px 48px 40px; }
 .hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); font-weight: 500; margin-bottom: 12px; }
 .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 10px; }
 .hero h1 span { color: var(--innago-blue); }
@@ -85,138 +85,148 @@ body {
   margin-bottom: 20px;
 }
 
-/* ─── Team headline stats ─── */
-.team-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.team-stat {
+/* ─── Org card ─── */
+.org-card {
   background: var(--white);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   border: 1px solid var(--gray-200);
-  padding: 24px 20px;
   box-shadow: var(--shadow-sm);
-  text-align: center;
-  transition: all 0.2s;
+  overflow: hidden;
+  margin-bottom: 28px;
 }
 
-.team-stat:hover { border-color: var(--gray-300); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.org-header {
+  padding: 24px 36px 20px;
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--white);
+}
 
-.team-stat-value {
-  font-size: 32px;
+.org-header-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+
+.org-stat {
+  text-align: center;
+}
+
+.org-stat-label {
+  font-size: 11px;
+  color: var(--gray-400);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.org-stat-value {
+  font-size: 28px;
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 1;
-  margin-bottom: 4px;
-  color: var(--innago-blue);
 }
 
-.team-stat-value.placeholder {
-  color: var(--gray-300);
-}
+.org-stat-value { color: var(--purple); }
 
-.team-stat-label {
-  font-size: 12px;
-  color: var(--gray-500);
-  font-weight: 500;
-}
-
-.team-stat-sub {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--gray-400);
-  margin-top: 6px;
-}
-
-/* ─── Headcount chart ─── */
-.headcount-chart {
-  position: relative;
-  height: 200px;
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  padding-bottom: 28px;
-  padding-left: 40px;
-}
-
-.headcount-chart::after {
-  content: '';
-  position: absolute;
-  bottom: 28px;
-  left: 40px;
-  right: 0;
-  height: 1px;
+.org-stat-divider {
+  width: 1px;
+  height: 36px;
   background: var(--gray-200);
 }
 
-.hc-y-axis {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 28px;
-  width: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-right: 6px;
+/* ─── Portfolio band ─── */
+.portfolio-band {
+  border-left: 4px solid transparent;
 }
 
-.hc-y-label {
+.portfolio-band:not(:last-child) {
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.portfolio-band.band-lead { border-left-color: var(--purple); }
+.portfolio-band.band-blue { border-left-color: var(--innago-blue); }
+.portfolio-band.band-green { border-left-color: var(--green); }
+.portfolio-band.band-amber { border-left-color: var(--amber); }
+
+.band-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px 14px;
+}
+
+.band-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.band-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-500);
+  letter-spacing: 0;
+}
+
+.band-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+.band-lead .band-label { background: var(--purple-light); color: var(--purple); }
+.band-blue .band-label { background: var(--innago-blue-50); color: var(--innago-blue); }
+.band-green .band-label { background: var(--green-light); color: var(--green); }
+.band-amber .band-label { background: var(--amber-light); color: var(--amber); }
+
+.band-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   color: var(--gray-400);
 }
 
-.hc-bar-group {
-  flex: 1;
+/* ─── Squad rows ─── */
+.squad-row {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  position: relative;
-  z-index: 1;
+  padding: 12px 32px 12px 44px;
+  border-top: 1px solid var(--gray-100);
 }
 
-.hc-bar {
-  width: 100%;
-  max-width: 48px;
-  border-radius: 6px 6px 0 0;
-  transition: all 0.3s;
-}
-
-.hc-bar-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+.squad-name {
+  font-size: 14px;
   font-weight: 600;
   color: var(--gray-700);
-  text-align: center;
-  margin-bottom: 4px;
+  min-width: 180px;
+  flex-shrink: 0;
 }
 
-.hc-bar-label {
-  position: absolute;
-  bottom: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
+.squad-owns {
+  font-size: 12px;
   color: var(--gray-400);
-  white-space: nowrap;
+  line-height: 1.4;
+  flex: 1;
 }
 
-.placeholder-note {
+.squad-size {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--gray-400);
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 28px;
   text-align: center;
-  padding: 40px 0;
-  border: 1px dashed var(--gray-300);
-  border-radius: var(--radius-sm);
-  background: var(--gray-50);
+  flex-shrink: 0;
+  margin-left: 16px;
 }
+
+.band-blue .squad-size { color: var(--innago-blue); }
+.band-green .squad-size { color: var(--green); }
+.band-amber .squad-size { color: var(--amber); }
+
 
 
 /* ─── Roadmap ─── */
@@ -368,7 +378,9 @@ body {
 @media (max-width: 900px) {
   .hero-inner, .main, .header-inner { padding-left: 24px; padding-right: 24px; }
   .hero h1 { font-size: 30px; }
-  .team-stats { grid-template-columns: repeat(2, 1fr); }
+  .squad-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .squad-name { min-width: auto; }
+  .squad-size { margin-left: 0; }
   .roadmap-grid { grid-template-columns: 1fr; }
   .migration-grid { grid-template-columns: 1fr; }
 }
@@ -410,47 +422,116 @@ body {
 </div></div>
 
 <div class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Capacity & Outlook</div>
   <h1>Team, Roadmap &<br><span>What's Ahead</span></h1>
   <p class="hero-sub">A 30–45 person engineering team shipping 265 releases across 13 quarters. Here's who built it, what's next, and what we're watching.</p>
 </div></div>
 
 <div class="main">
 
-  <!-- Team Headline Stats -->
-  <div class="section-title">Team at a Glance</div>
-  <div class="team-stats fade" id="teamStats">
-    <div class="team-stat">
-      <div class="team-stat-value" id="tsHeadcount">30–45</div>
-      <div class="team-stat-label">Engineers (range)</div>
-      <div class="team-stat-sub">fluctuates across quarters</div>
+  <!-- Team Structure -->
+  <div class="section-title">Engineering Team — Structure</div>
+
+  <div class="org-card fade">
+    <!-- Summary header -->
+    <div class="org-header">
+      <div class="org-header-stats">
+        <div class="org-stat">
+          <div class="org-stat-label">Portfolios</div>
+          <div class="org-stat-value">3</div>
+        </div>
+        <div class="org-stat-divider"></div>
+        <div class="org-stat">
+          <div class="org-stat-label">Squads</div>
+          <div class="org-stat-value">7</div>
+        </div>
+        <div class="org-stat-divider"></div>
+        <div class="org-stat">
+          <div class="org-stat-label">Headcount</div>
+          <div class="org-stat-value">43</div>
+        </div>
+      </div>
     </div>
-    <div class="team-stat">
-      <div class="team-stat-value" id="tsRelPerEng">--</div>
-      <div class="team-stat-label">Releases / Engineer / Year</div>
-      <div class="team-stat-sub" id="tsRelPerEngSub">AWAITING HEADCOUNT DATA</div>
+
+    <!-- Leadership -->
+    <div class="portfolio-band band-lead">
+      <div class="band-header">
+        <div class="band-title">
+          <span class="band-label">LEADERSHIP</span>
+          <span class="band-name">Director of Engineering | Solution Architect | Project Manager</span>
+        </div>
+      </div>
     </div>
-    <div class="team-stat">
-      <div class="team-stat-value">265</div>
-      <div class="team-stat-label">Total Releases</div>
-      <div class="team-stat-sub">across 39 months</div>
+
+    <!-- Portfolio 1: Core Product -->
+    <div class="portfolio-band band-blue">
+      <div class="band-header">
+        <div class="band-title">
+          <span class="band-label">CORE PRODUCT</span>
+          <span class="band-name">Property Owner | Tenant | Mobile</span>
+        </div>
+        <div class="band-meta">1 Portfolio Lead · 15 engineers</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">Revenue Collectors</div>
+        <div class="squad-owns">Leases, invoicing, properties, expenses, reports</div>
+        <div class="squad-size">6</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">Tenant Titans</div>
+        <div class="squad-owns">Payments, applications, screening, tenant portal</div>
+        <div class="squad-size">5</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">Mobile Café</div>
+        <div class="squad-owns">iOS & Android apps, mobile release coordination</div>
+        <div class="squad-size">4</div>
+      </div>
     </div>
-    <div class="team-stat">
-      <div class="team-stat-value">13</div>
-      <div class="team-stat-label">Quarters Shipping</div>
-      <div class="team-stat-sub">zero quarters missed</div>
+
+    <!-- Portfolio 2: Platform -->
+    <div class="portfolio-band band-green">
+      <div class="band-header">
+        <div class="band-title">
+          <span class="band-label">PLATFORM</span>
+          <span class="band-name">Infra | Security | Tooling</span>
+        </div>
+        <div class="band-meta">1 Portfolio Lead · 11 engineers</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">DevSecOps</div>
+        <div class="squad-owns">Security, resilience, chaos engineering, CI/CD, infrastructure</div>
+        <div class="squad-size">6</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">DevKit</div>
+        <div class="squad-owns">Developer tooling, platform services, internal frameworks</div>
+        <div class="squad-size">5</div>
+      </div>
     </div>
+
+    <!-- Portfolio 3: Emerging Opportunities -->
+    <div class="portfolio-band band-amber">
+      <div class="band-header">
+        <div class="band-title">
+          <span class="band-label">EMERGING OPPORTUNITIES</span>
+          <span class="band-name">Growth | Fintech | AI</span>
+        </div>
+        <div class="band-meta">1 Portfolio Lead · 11 engineers</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">Marketing Mavericks</div>
+        <div class="squad-owns">Analytics, marketing optimization, AI features, integrations</div>
+        <div class="squad-size">5</div>
+      </div>
+      <div class="squad-row">
+        <div class="squad-name">Trailblazers</div>
+        <div class="squad-owns">Fintech, new products, payment processors, credit reporting</div>
+        <div class="squad-size">6</div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Headcount Over Time -->
-  <div class="card fade" id="headcountCard">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
-      <span style="font-size:17px;font-weight:700;color:var(--gray-800)">Headcount Over Time</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-400)">TEAM SIZE BY QUARTER</span>
-    </div>
-    <div style="font-size:13px;color:var(--gray-400);margin-bottom:24px">Engineering team size across 13 quarters — bar height shows relative size.</div>
-    <div id="headcountChartArea"></div>
-  </div>
 
   <!-- Active Migrations -->
   <div class="section-title" style="margin-top:32px">Active Migrations</div>
@@ -467,78 +548,7 @@ body {
 
 <script src="portfolio-data.js"></script>
 <script>
-var team = PORTFOLIO.team;
 var IP = PORTFOLIO.isPlaceholder;
-
-// ─── Team stats ───
-(function() {
-  var hc = team.headcount;
-  var filledQuarters = hc.filter(function(h) { return !IP(h.count); });
-
-  if (filledQuarters.length > 0) {
-    // Show current headcount
-    var latest = filledQuarters[filledQuarters.length - 1];
-    document.getElementById('tsHeadcount').textContent = latest.count;
-
-    // Releases per engineer per year — weighted by actual headcount per quarter
-    // For each quarter: releases_that_quarter / headcount_that_quarter
-    // Then average across quarters and annualize (×4 since quarterly)
-    var releases = PORTFOLIO.quarterlyReleases;
-    var weightedSum = 0;
-    var matchedQuarters = 0;
-
-    releases.forEach(function(r) {
-      var match = hc.find(function(h) { return h.period === r.q; });
-      if (match && !IP(match.count) && match.count > 0) {
-        weightedSum += r.total / match.count;
-        matchedQuarters++;
-      }
-    });
-
-    if (matchedQuarters > 0) {
-      // Average releases-per-engineer-per-quarter × 4 = annualized
-      var rpe = ((weightedSum / matchedQuarters) * 4).toFixed(1);
-      document.getElementById('tsRelPerEng').textContent = '~' + rpe;
-      document.getElementById('tsRelPerEngSub').textContent = 'avg across ' + matchedQuarters + ' quarters';
-    }
-  }
-})();
-
-// ─── Headcount chart ───
-(function() {
-  var hc = team.headcount;
-  var hasData = hc.some(function(h) { return !IP(h.count); });
-
-  if (!hasData) {
-    document.getElementById('headcountChartArea').innerHTML =
-      '<div class="placeholder-note">Headcount data needed — update team.headcount[] in portfolio-data.js<br>Range: 30–45 engineers across 13 quarters</div>';
-    return;
-  }
-
-  var maxHC = Math.max.apply(null, hc.map(function(h) { return h.count; }));
-  var chartH = 160;
-  var html = '<div class="headcount-chart">';
-
-  // Y-axis
-  html += '<div class="hc-y-axis">';
-  for (var i = 0; i <= 4; i++) {
-    html += '<span class="hc-y-label">' + Math.round(maxHC * (4 - i) / 4) + '</span>';
-  }
-  html += '</div>';
-
-  hc.forEach(function(h) {
-    var pct = maxHC > 0 ? (h.count / maxHC) * 100 : 0;
-    var shortQ = PORTFOLIO.shortQuarter(h.period);
-    html += '<div class="hc-bar-group">';
-    html += '<div class="hc-bar-count">' + h.count + '</div>';
-    html += '<div class="hc-bar" style="height:' + pct + '%;background:var(--purple);opacity:' + (0.5 + pct / 200) + '"></div>';
-    html += '<span class="hc-bar-label">' + shortQ + '</span>';
-    html += '</div>';
-  });
-
-  html += '</div>';
-  document.getElementById('headcountChartArea').innerHTML = html;
-})();
 
 // ─── Migrations ───
 (function() {
