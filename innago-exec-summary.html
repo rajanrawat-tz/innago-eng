@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --innago-blue: #1A56DB;
-  --innago-blue-dark: #0F3A8F;
-  --innago-blue-50: #F5F8FF;
-  --innago-blue-100: #DBEAFE;
-  --innago-blue-200: #BFCFFC;
+  --innago-blue: #3498DB;
+  --innago-blue-dark: #2176AE;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --innago-blue-200: #AED6F1;
   --white: #FFFFFF;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -52,10 +52,7 @@ body {
 }
 
 /* ─── Top accent ─── */
-.top-accent {
-  height: 5px;
-  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--purple) 33%, var(--green) 66%, var(--innago-blue) 100%);
-}
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--innago-blue), var(--purple), var(--green), var(--innago-blue)); }
 
 /* ─── Container ─── */
 .page {
@@ -68,18 +65,10 @@ body {
 .header {
   padding: 48px 0 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--gray-200);
   opacity: 0; animation: fadeIn 0.5s ease forwards 0.1s;
-}
-
-.logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
-.logo-mark { width: 38px; height: 38px; background: var(--innago-blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 16px; }
-.logo-text { font-size: 20px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.3px; }
-
-.header-right {
-  text-align: right;
-  padding-top: 4px;
 }
 
 .header-badge {
@@ -354,7 +343,7 @@ body {
 .p-mobile::after { background: var(--indigo); }
 
 .p-ai .pillar-count { color: var(--amber); }
-.p-ai::after { background: linear-gradient(90deg, var(--innago-blue), var(--purple)); }
+.p-ai::after { background: var(--amber); }
 
 /* Span the AI card across remaining columns */
 .pillar-card.p-ai {
@@ -492,24 +481,12 @@ body {
 }
 
 /* ─── Footer ─── */
-.footer {
-  border-top: 1px solid var(--gray-200);
-  padding: 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-left {
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
+  text-align: center;
+  padding: 0 48px 40px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--gray-400);
-}
-
-.footer-right {
-  font-size: 12px;
-  color: var(--gray-400);
-  font-weight: 500;
 }
 
 /* ─── Animations ─── */
@@ -565,19 +542,13 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
   font-weight: 800;
-  color: #1A56DB;
+  color: #3498DB;
   text-decoration: none;
   margin-right: 12px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-.site-nav-home .nav-logo {
-  width: 22px; height: 22px;
-  background: #1A56DB; border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 10px; font-weight: 800;
 }
 .site-nav-link {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -591,7 +562,7 @@ body {
   transition: all 0.15s;
 }
 .site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
-.site-nav-link.active { background: #F5F8FF; color: #1A56DB; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
 @media (max-width: 800px) {
   .site-nav { padding: 0 16px; }
   .site-nav-inner { gap: 2px; }
@@ -601,14 +572,14 @@ body {
 </head>
 <body>
 
-<div class="top-accent"></div>
+<div class="top-bar"></div>
 <nav class="site-nav"><div class="site-nav-inner">
-<a href="index.html" class="site-nav-home"><span class="nav-logo">in</span>Portfolio</a>
+<a href="index.html" class="site-nav-home">innago</a>
 <a href="innago-exec-summary.html" class="site-nav-link active">Summary</a>
 <a href="innago-3yr-release-timeline.html" class="site-nav-link ">Timeline</a>
 <a href="innago-platform-evolution.html" class="site-nav-link ">Evolution</a>
-<a href="innago-capability-maturity.html" class="site-nav-link ">Maturity</a>
-<a href="innago-velocity-dashboard.html" class="site-nav-link ">Velocity</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link ">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link ">Team & Roadmap</a>
 <a href="innago-ai-reality-check.html" class="site-nav-link ">AI Reality</a>
 </div></nav>
 
@@ -616,16 +587,8 @@ body {
 
   <!-- Header -->
   <div class="header">
-    <div>
-      <div class="logo-row">
-        <div class="logo-mark">in</div>
-        <span class="logo-text">innago</span>
-      </div>
-    </div>
-    <div class="header-right">
-      <div class="header-badge">ENGINEERING EXECUTIVE SUMMARY</div>
-      <div class="header-date">Jan 2023 — Mar 2026</div>
-    </div>
+    <span class="header-badge">ENGINEERING EXECUTIVE SUMMARY</span>
+    <span class="header-date">Jan 2023 — Mar 2026</span>
   </div>
 
   <!-- Hero -->
@@ -657,6 +620,28 @@ body {
     <div class="stat">
       <div class="stat-num amber">~7</div>
       <div class="stat-label">Releases / Month</div>
+    </div>
+  </div>
+
+  <!-- Platform Scale -->
+  <div class="eras-section" id="scaleSection" style="opacity:0;animation:fadeIn 0.5s ease forwards 0.3s">
+    <div class="eras-title">Platform Scale — What We Power</div>
+    <div class="next-grid" id="scaleGrid">
+      <div class="next-card" style="border-style:solid;border-color:var(--gray-200);background:var(--white)">
+        <div class="next-tag" style="background:var(--innago-blue-50);color:var(--innago-blue)">USERS</div>
+        <div class="next-name" id="scaleUsers" style="font-size:28px;font-weight:800;color:var(--innago-blue);letter-spacing:-0.5px">~300K</div>
+        <div class="next-desc" id="scaleUsersDesc">Auth0 migrated users — total active user count and growth multiplier available in portfolio-data.js</div>
+      </div>
+      <div class="next-card" style="border-style:solid;border-color:var(--gray-200);background:var(--white)">
+        <div class="next-tag" style="background:var(--green-light);color:var(--green)">TRANSACTIONS</div>
+        <div class="next-name" id="scaleTxn" style="font-size:28px;font-weight:800;color:var(--green);letter-spacing:-0.5px">--</div>
+        <div class="next-desc" id="scaleTxnDesc">Quarterly transaction volume — update platformScale.quarterlyTransactionVolume in portfolio-data.js</div>
+      </div>
+      <div class="next-card" style="border-style:solid;border-color:var(--gray-200);background:var(--white)">
+        <div class="next-tag" style="background:var(--purple-light);color:var(--purple)">INTEGRATIONS</div>
+        <div class="next-name" style="font-size:28px;font-weight:800;color:var(--purple);letter-spacing:-0.5px">15+</div>
+        <div class="next-desc">Live integrations — QuickBooks, Zillow, Brevo, HubSpot, Experian, Transunion, and more</div>
+      </div>
     </div>
   </div>
 
@@ -712,53 +697,53 @@ body {
     <div class="pillars-title">Investment Across 7 Platform Pillars</div>
     <div class="pillars-grid">
 
-      <div class="pillar-card p-tenant">
-        <div class="pillar-icon">🏠</div>
-        <div class="pillar-name">Tenant Experience</div>
-        <div class="pillar-count">43 milestones</div>
-        <div class="pillar-headline">Smart Search, Maintenance module, Credit Reporting, WebView, damage reports, rent splitting</div>
+      <div class="pillar-card p-security">
+        <div class="pillar-icon">🛡</div>
+        <div class="pillar-name">Identity & Security</div>
+        <div class="pillar-count">26 milestones</div>
+        <div class="pillar-headline">Auth0, MFA everywhere, Socure KYC, SIFT fraud, passwordless, firewall & DDoS protection</div>
       </div>
 
-      <div class="pillar-card p-infra">
-        <div class="pillar-icon">⚙️</div>
-        <div class="pillar-name">Infrastructure</div>
-        <div class="pillar-count">30 milestones</div>
-        <div class="pillar-headline">Data center → AWS EKS, GitHub pipelines, Redis/RabbitMQ on K8s, .NET modernization</div>
+      <div class="pillar-card p-tenant">
+        <div class="pillar-icon">🏠</div>
+        <div class="pillar-name">User Experience</div>
+        <div class="pillar-count">43 milestones</div>
+        <div class="pillar-headline">Smart Search, Properties module, Maintenance redesign, Credit Reporting, dashboards, damage reports, sub-user management</div>
       </div>
 
       <div class="pillar-card p-payments">
         <div class="pillar-icon">💳</div>
         <div class="pillar-name">Payments & Fintech</div>
         <div class="pillar-count">28 milestones</div>
-        <div class="pillar-headline">Hyperswitch routing, Livable, 1-day settlements, Kount fraud, autopay, rent split</div>
-      </div>
-
-      <div class="pillar-card p-security">
-        <div class="pillar-icon">🛡</div>
-        <div class="pillar-name">Identity & Security</div>
-        <div class="pillar-count">26 milestones</div>
-        <div class="pillar-headline">Auth0 (300K migrated), MFA everywhere, Socure KYC, breach detection, passwordless</div>
-      </div>
-
-      <div class="pillar-card p-integrations">
-        <div class="pillar-icon">🔗</div>
-        <div class="pillar-name">Integrations</div>
-        <div class="pillar-count">23 milestones</div>
-        <div class="pillar-headline">QuickBooks, Brevo, HubSpot, Heap, Experian, Transunion, Readyly, Latchel, Zillow v2</div>
-      </div>
-
-      <div class="pillar-card p-ai">
-        <div class="pillar-icon">🧠</div>
-        <div class="pillar-name">Analytics & AI</div>
-        <div class="pillar-count">10 milestones + emerging</div>
-        <div class="pillar-headline">Innago Insights, Snowflake + AI Insights, AI agents for support, GA4, Heap analytics</div>
+        <div class="pillar-headline">Hyperswitch unified routing, Livable, 1-day settlements, SIFT fraud, instant payouts, autopay, rent split</div>
       </div>
 
       <div class="pillar-card p-mobile">
         <div class="pillar-icon">📱</div>
         <div class="pillar-name">Mobile</div>
         <div class="pillar-count">5 milestones</div>
-        <div class="pillar-headline">React Native 0.72, Auth0 login, chat, Properties & Maintenance views, 16KB reduction</div>
+        <div class="pillar-headline">Feature parity with web, Properties & Maintenance via web views, Smart Search, Auth0, Readyly chat, reports</div>
+      </div>
+
+      <div class="pillar-card p-infra">
+        <div class="pillar-icon">⚙️</div>
+        <div class="pillar-name">Infrastructure</div>
+        <div class="pillar-count">30 milestones</div>
+        <div class="pillar-headline">Data center → AWS EKS, consolidated on GitHub (code, CI/CD, projects), Redis/RabbitMQ on K8s, .NET modernization</div>
+      </div>
+
+      <div class="pillar-card p-integrations">
+        <div class="pillar-icon">🔗</div>
+        <div class="pillar-name">Integrations</div>
+        <div class="pillar-count">23 milestones</div>
+        <div class="pillar-headline">Zillow V2, QuickBooks, Brevo, HubSpot, TransUnion + Experian + Equifax, Readyly, Latchel, Renters Insurance</div>
+      </div>
+
+      <div class="pillar-card p-ai">
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-name">Analytics & AI</div>
+        <div class="pillar-count">10 milestones + emerging</div>
+        <div class="pillar-headline">Enhanced ETL + Power BI, Snowflake data warehouse, AI agents for support, Heap analytics, GA4</div>
       </div>
 
     </div>
@@ -793,42 +778,46 @@ body {
   </div>
 
   <!-- Footer -->
-  <div class="footer">
-    <div class="footer-left">Innago Engineering · Executive Summary · Confidential</div>
-    <div class="footer-right">265 releases · 165 milestones · 7 pillars · 13 quarters</div>
-  </div>
+  <div class="footer">Innago Engineering Portfolio</div>
 
 </div>
 
+<script src="portfolio-data.js"></script>
 <script>
-// Velocity chart
-const quarterData = [
-  { q: "Q1 '23", count: 11 },
-  { q: "Q2 '23", count: 29 },
-  { q: "Q3 '23", count: 11 },
-  { q: "Q4 '23", count: 27 },
-  { q: "Q1 '24", count: 26 },
-  { q: "Q2 '24", count: 27 },
-  { q: "Q3 '24", count: 23 },
-  { q: "Q4 '24", count: 23 },
-  { q: "Q1 '25", count: 33 },
-  { q: "Q2 '25", count: 25 },
-  { q: "Q3 '25", count: 19 },
-  { q: "Q4 '25", count: 18 },
-  { q: "Q1 '26", count: 19 }
-];
-
-const maxCount = Math.max(...quarterData.map(d => d.count));
+// Velocity chart — now reads from central data
+var quarterData = PORTFOLIO.quarterlyReleases.map(function(d) {
+  return { q: PORTFOLIO.shortQuarter(d.q), count: d.total };
+});
+var maxCount = Math.max.apply(null, quarterData.map(function(d) { return d.count; }));
 
 document.getElementById('velocityChart').innerHTML = quarterData.map(function(d) {
   var pct = (d.count / maxCount) * 100;
   var opacity = 0.45 + (pct / 100) * 0.55;
   return '<div class="v-bar-group">' +
-    '<div class="v-bar" style="height:' + pct + '%;background:#1A56DB;opacity:' + opacity + '">' +
+    '<div class="v-bar" style="height:' + pct + '%;background:#3498DB;opacity:' + opacity + '">' +
     '<span class="v-bar-count">' + d.count + '</span>' +
     '<span class="v-bar-label">' + d.q + '</span>' +
     '</div></div>';
 }).join('');
+
+// Platform Scale — populate from central data
+(function() {
+  var ps = PORTFOLIO.platformScale;
+
+  // Users
+  if (!PORTFOLIO.isPlaceholder(ps.activeUsers.current)) {
+    document.getElementById('scaleUsers').textContent = PORTFOLIO.formatNumber(ps.activeUsers.current);
+    document.getElementById('scaleUsersDesc').textContent = ps.activeUsers.growth + ' growth since Jan 2023';
+  }
+
+  // Transactions
+  var txnData = ps.quarterlyTransactionVolume;
+  var latestTxn = txnData[txnData.length - 1];
+  if (!PORTFOLIO.isPlaceholder(latestTxn.volume)) {
+    document.getElementById('scaleTxn').textContent = '$' + PORTFOLIO.formatNumber(latestTxn.volume);
+    document.getElementById('scaleTxnDesc').textContent = 'Latest quarterly transaction volume processed through the platform';
+  }
+})();
 </script>
 
 </body>

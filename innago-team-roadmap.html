@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innago — Team & Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --innago-blue: #3498DB;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --purple: #7C3AED;
+  --purple-light: #F3EEFF;
+  --amber: #D97706;
+  --amber-light: #FFFBEB;
+  --rose: #E11D48;
+  --rose-light: #FFF1F2;
+  --cyan: #0891B2;
+  --cyan-light: #ECFEFF;
+  --indigo: #4F46E5;
+  --indigo-light: #EEF2FF;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--innago-blue), var(--purple), var(--cyan), var(--green)); }
+
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
+.header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--purple-light); color: var(--purple); border-radius: 20px; border: 1px solid #DDD6FE; }
+
+.hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 48px 48px 40px; }
+.hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--purple); font-weight: 500; margin-bottom: 12px; }
+.hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 10px; }
+.hero h1 span { color: var(--innago-blue); }
+.hero-sub { font-size: 16px; color: var(--gray-500); max-width: 680px; line-height: 1.6; }
+
+.main { max-width: 1200px; margin: 32px auto 0; padding: 0 48px 80px; }
+
+/* ─── Section titles ─── */
+.section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+/* ─── Card base ─── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 32px 36px 28px;
+  margin-bottom: 20px;
+}
+
+/* ─── Team headline stats ─── */
+.team-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.team-stat {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.team-stat:hover { border-color: var(--gray-300); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+.team-stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: var(--innago-blue);
+}
+
+.team-stat-value.placeholder {
+  color: var(--gray-300);
+}
+
+.team-stat-label {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.team-stat-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gray-400);
+  margin-top: 6px;
+}
+
+/* ─── Headcount chart ─── */
+.headcount-chart {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding-bottom: 28px;
+  padding-left: 40px;
+}
+
+.headcount-chart::after {
+  content: '';
+  position: absolute;
+  bottom: 28px;
+  left: 40px;
+  right: 0;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.hc-y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 28px;
+  width: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 6px;
+}
+
+.hc-y-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gray-400);
+}
+
+.hc-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hc-bar {
+  width: 100%;
+  max-width: 48px;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s;
+}
+
+.hc-bar-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-700);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.hc-bar-label {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+.placeholder-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+  text-align: center;
+  padding: 40px 0;
+  border: 1px dashed var(--gray-300);
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+}
+
+
+/* ─── Roadmap ─── */
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.roadmap-card {
+  padding: 22px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+
+.roadmap-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+.roadmap-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.roadmap-quarter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--innago-blue-50);
+  color: var(--innago-blue);
+}
+
+.roadmap-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.roadmap-status.planned { background: var(--gray-100); color: var(--gray-500); }
+.roadmap-status.in-progress { background: var(--amber-light); color: var(--amber); }
+.roadmap-status.shipped { background: var(--green-light); color: var(--green); }
+
+.roadmap-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+
+.roadmap-desc {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.roadmap-pillar {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gray-400);
+  margin-top: 10px;
+}
+
+/* ─── Migrations ─── */
+.migration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.migration-card {
+  padding: 22px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.migration-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.migration-bar-track {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--gray-100);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.migration-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  background: var(--innago-blue);
+  transition: width 1s ease;
+}
+
+.migration-bar-fill.placeholder {
+  background: var(--gray-200);
+  border: 1px dashed var(--gray-300);
+}
+
+.migration-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+}
+
+.migration-pct { font-weight: 700; color: var(--innago-blue); }
+.migration-pct.placeholder { color: var(--gray-400); }
+.migration-target { color: var(--gray-400); }
+
+.migration-status {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 40px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade { opacity: 0; }
+.fade.in { animation: fadeIn 0.5s ease forwards; }
+
+@media (max-width: 900px) {
+  .hero-inner, .main, .header-inner { padding-left: 24px; padding-right: 24px; }
+  .hero h1 { font-size: 30px; }
+  .team-stats { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .migration-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  * { animation: none !important; opacity: 1 !important; }
+  .site-nav { display: none; }
+}
+
+/* ─── Shared Nav ─── */
+.site-nav { position: sticky; top: 0; z-index: 999; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #E5E7EB; padding: 0 48px; }
+.site-nav-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; height: 48px; gap: 6px; overflow-x: auto; }
+.site-nav-home { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #3498DB; text-decoration: none; margin-right: 12px; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.site-nav-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: #6B7280; text-decoration: none; padding: 6px 12px; border-radius: 6px; white-space: nowrap; transition: all 0.15s; }
+.site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
+@media (max-width: 800px) {
+  .site-nav { padding: 0 16px; }
+  .site-nav-inner { gap: 2px; }
+  .site-nav-link { font-size: 11px; padding: 5px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+<nav class="site-nav"><div class="site-nav-inner">
+<a href="index.html" class="site-nav-home">innago</a>
+<a href="innago-exec-summary.html" class="site-nav-link">Summary</a>
+<a href="innago-3yr-release-timeline.html" class="site-nav-link">Timeline</a>
+<a href="innago-platform-evolution.html" class="site-nav-link">Evolution</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link active">Team & Roadmap</a>
+<a href="innago-ai-reality-check.html" class="site-nav-link">AI Reality</a>
+</div></nav>
+
+<div class="header"><div class="header-inner">
+  <span class="header-badge">Team · Roadmap · Outlook</span>
+</div></div>
+
+<div class="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">Capacity & Outlook</div>
+  <h1>Team, Roadmap &<br><span>What's Ahead</span></h1>
+  <p class="hero-sub">A 30–45 person engineering team shipping 265 releases across 13 quarters. Here's who built it, what's next, and what we're watching.</p>
+</div></div>
+
+<div class="main">
+
+  <!-- Team Headline Stats -->
+  <div class="section-title">Team at a Glance</div>
+  <div class="team-stats fade" id="teamStats">
+    <div class="team-stat">
+      <div class="team-stat-value" id="tsHeadcount">30–45</div>
+      <div class="team-stat-label">Engineers (range)</div>
+      <div class="team-stat-sub">fluctuates across quarters</div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-value" id="tsRelPerEng">--</div>
+      <div class="team-stat-label">Releases / Engineer / Year</div>
+      <div class="team-stat-sub" id="tsRelPerEngSub">AWAITING HEADCOUNT DATA</div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-value">265</div>
+      <div class="team-stat-label">Total Releases</div>
+      <div class="team-stat-sub">across 39 months</div>
+    </div>
+    <div class="team-stat">
+      <div class="team-stat-value">13</div>
+      <div class="team-stat-label">Quarters Shipping</div>
+      <div class="team-stat-sub">zero quarters missed</div>
+    </div>
+  </div>
+
+  <!-- Headcount Over Time -->
+  <div class="card fade" id="headcountCard">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+      <span style="font-size:17px;font-weight:700;color:var(--gray-800)">Headcount Over Time</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gray-400)">TEAM SIZE BY QUARTER</span>
+    </div>
+    <div style="font-size:13px;color:var(--gray-400);margin-bottom:24px">Engineering team size across 13 quarters — bar height shows relative size.</div>
+    <div id="headcountChartArea"></div>
+  </div>
+
+  <!-- Active Migrations -->
+  <div class="section-title" style="margin-top:32px">Active Migrations</div>
+  <div class="migration-grid fade" id="migrationGrid"></div>
+
+  <!-- Roadmap -->
+  <div class="section-title">Roadmap — What's Next</div>
+  <div class="roadmap-grid fade" id="roadmapGrid"></div>
+
+
+</div>
+
+<div class="footer">Innago Engineering Portfolio</div>
+
+<script src="portfolio-data.js"></script>
+<script>
+var team = PORTFOLIO.team;
+var IP = PORTFOLIO.isPlaceholder;
+
+// ─── Team stats ───
+(function() {
+  var hc = team.headcount;
+  var filledQuarters = hc.filter(function(h) { return !IP(h.count); });
+
+  if (filledQuarters.length > 0) {
+    // Show current headcount
+    var latest = filledQuarters[filledQuarters.length - 1];
+    document.getElementById('tsHeadcount').textContent = latest.count;
+
+    // Releases per engineer per year — weighted by actual headcount per quarter
+    // For each quarter: releases_that_quarter / headcount_that_quarter
+    // Then average across quarters and annualize (×4 since quarterly)
+    var releases = PORTFOLIO.quarterlyReleases;
+    var weightedSum = 0;
+    var matchedQuarters = 0;
+
+    releases.forEach(function(r) {
+      var match = hc.find(function(h) { return h.period === r.q; });
+      if (match && !IP(match.count) && match.count > 0) {
+        weightedSum += r.total / match.count;
+        matchedQuarters++;
+      }
+    });
+
+    if (matchedQuarters > 0) {
+      // Average releases-per-engineer-per-quarter × 4 = annualized
+      var rpe = ((weightedSum / matchedQuarters) * 4).toFixed(1);
+      document.getElementById('tsRelPerEng').textContent = '~' + rpe;
+      document.getElementById('tsRelPerEngSub').textContent = 'avg across ' + matchedQuarters + ' quarters';
+    }
+  }
+})();
+
+// ─── Headcount chart ───
+(function() {
+  var hc = team.headcount;
+  var hasData = hc.some(function(h) { return !IP(h.count); });
+
+  if (!hasData) {
+    document.getElementById('headcountChartArea').innerHTML =
+      '<div class="placeholder-note">Headcount data needed — update team.headcount[] in portfolio-data.js<br>Range: 30–45 engineers across 13 quarters</div>';
+    return;
+  }
+
+  var maxHC = Math.max.apply(null, hc.map(function(h) { return h.count; }));
+  var chartH = 160;
+  var html = '<div class="headcount-chart">';
+
+  // Y-axis
+  html += '<div class="hc-y-axis">';
+  for (var i = 0; i <= 4; i++) {
+    html += '<span class="hc-y-label">' + Math.round(maxHC * (4 - i) / 4) + '</span>';
+  }
+  html += '</div>';
+
+  hc.forEach(function(h) {
+    var pct = maxHC > 0 ? (h.count / maxHC) * 100 : 0;
+    var shortQ = PORTFOLIO.shortQuarter(h.period);
+    html += '<div class="hc-bar-group">';
+    html += '<div class="hc-bar-count">' + h.count + '</div>';
+    html += '<div class="hc-bar" style="height:' + pct + '%;background:var(--purple);opacity:' + (0.5 + pct / 200) + '"></div>';
+    html += '<span class="hc-bar-label">' + shortQ + '</span>';
+    html += '</div>';
+  });
+
+  html += '</div>';
+  document.getElementById('headcountChartArea').innerHTML = html;
+})();
+
+// ─── Migrations ───
+(function() {
+  var migs = PORTFOLIO.migrations;
+  var html = '';
+  migs.forEach(function(m) {
+    var isP = IP(m.percentComplete);
+    html += '<div class="migration-card">';
+    html += '<div class="migration-name">' + m.name + '</div>';
+    html += '<div class="migration-bar-track"><div class="migration-bar-fill ' + (isP ? 'placeholder' : '') + '" style="width:' + (isP ? 30 : m.percentComplete) + '%"></div></div>';
+    html += '<div class="migration-meta">';
+    html += '<span class="migration-pct ' + (isP ? 'placeholder' : '') + '">' + (isP ? 'TBD' : m.percentComplete + '%') + '</span>';
+    html += '<span class="migration-target">' + (IP(m.targetCompletion) ? 'Target: TBD' : 'Target: ' + m.targetCompletion) + '</span>';
+    html += '</div>';
+    html += '<div class="migration-status">' + (IP(m.status) ? 'Status details needed' : m.status) + '</div>';
+    html += '</div>';
+  });
+  document.getElementById('migrationGrid').innerHTML = html;
+})();
+
+// ─── Roadmap ───
+(function() {
+  var items = PORTFOLIO.roadmap.upcoming;
+  var html = '';
+  items.forEach(function(item) {
+    var isP = IP(item.name);
+    html += '<div class="roadmap-card">';
+    html += '<div class="roadmap-card-header">';
+    html += '<span class="roadmap-quarter">' + item.quarter + '</span>';
+    html += '<span class="roadmap-status ' + item.status + '">' + item.status.toUpperCase().replace('-', ' ') + '</span>';
+    html += '</div>';
+    html += '<div class="roadmap-name">' + (isP ? 'Initiative — TBD' : item.name) + '</div>';
+    html += '<div class="roadmap-desc">' + (IP(item.description) ? 'Description needed' : item.description) + '</div>';
+    if (!IP(item.pillar)) {
+      html += '<div class="roadmap-pillar">' + item.pillar + '</div>';
+    }
+    html += '</div>';
+  });
+  document.getElementById('roadmapGrid').innerHTML = html;
+})();
+
+// Animate in
+var fades = document.querySelectorAll('.fade');
+fades.forEach(function(el, i) { setTimeout(function() { el.classList.add('in'); }, 100 + i * 80); });
+</script>
+
+</body>
+</html>

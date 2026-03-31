@@ -7,12 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --innago-blue: #1A56DB;
-  --innago-blue-dark: #0F3A8F;
+  --innago-blue: #3498DB;
+  --innago-blue-dark: #2176AE;
   --innago-blue-light: #EEF3FF;
-  --innago-blue-50: #F5F8FF;
-  --innago-blue-100: #DBEAFE;
-  --innago-blue-200: #BFCFFC;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --innago-blue-200: #AED6F1;
   --white: #FFFFFF;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -57,48 +57,14 @@ body {
 }
 
 /* ─── Header ─── */
-.header {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 48px 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  opacity: 0;
-  animation: fadeIn 0.5s ease forwards 0.1s;
-}
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
+.header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--green-light); color: var(--green); border-radius: 20px; border: 1px solid #D1FAE5; }
 
-.header-left {
-  flex: 1;
-}
+.hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 48px 48px 40px; }
 
-.logo-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  background: var(--innago-blue);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 14px;
-}
-
-.logo-text {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--gray-800);
-}
-
-.header h1 {
+.hero h1 {
   font-size: 42px;
   font-weight: 800;
   letter-spacing: -1.5px;
@@ -107,21 +73,13 @@ body {
   margin-bottom: 12px;
 }
 
-.header h1 span { color: var(--innago-blue); }
+.hero h1 span { color: var(--innago-blue); }
 
 .header-sub {
   font-size: 16px;
   color: var(--gray-500);
   line-height: 1.6;
-  max-width: 520px;
-}
-
-.header-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-  padding-top: 64px;
+  max-width: 620px;
 }
 
 .epoch-badge {
@@ -265,12 +223,10 @@ body {
 .arrow-icon {
   width: 32px;
   height: 32px;
-  background: var(--innago-blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(26,86,219,0.25);
   flex-shrink: 0;
 }
 
@@ -331,7 +287,6 @@ body {
 .item-from .item-dot { background: var(--gray-300); }
 .item-from { color: var(--gray-500); }
 
-.item-to .item-dot { background: var(--innago-blue); }
 .item-to { color: var(--gray-700); font-weight: 500; }
 
 /* Highlight tag for "new" items */
@@ -356,27 +311,41 @@ body {
   color: var(--amber);
 }
 
-/* Color accents per pillar */
-.pillar-payments .pillar-icon { background: var(--green-light); color: var(--green); }
-.pillar-payments .pillar-to { border-left: 3px solid var(--green); }
-
+/* Color accents per pillar — icon, arrow, FROM tint, TO border, TO dots */
 .pillar-security .pillar-icon { background: var(--rose-light); color: var(--rose); }
-.pillar-security .pillar-to { border-left: 3px solid var(--rose); }
-
-.pillar-infra .pillar-icon { background: var(--purple-light); color: var(--purple); }
-.pillar-infra .pillar-to { border-left: 3px solid var(--purple); }
+.pillar-security .arrow-icon { background: var(--rose); box-shadow: 0 2px 8px rgba(225,29,72,0.25); }
+.pillar-security .pillar-to { border-left: 3px solid var(--rose); background: rgba(225,29,72,0.03); }
+.pillar-security .item-to .item-dot { background: var(--rose); }
 
 .pillar-tenant .pillar-icon { background: var(--innago-blue-light); color: var(--innago-blue); }
-.pillar-tenant .pillar-to { border-left: 3px solid var(--innago-blue); }
+.pillar-tenant .arrow-icon { background: var(--innago-blue); box-shadow: 0 2px 8px rgba(52,152,219,0.25); }
+.pillar-tenant .pillar-to { border-left: 3px solid var(--innago-blue); background: rgba(52,152,219,0.03); }
+.pillar-tenant .item-to .item-dot { background: var(--innago-blue); }
 
-.pillar-integrations .pillar-icon { background: var(--cyan-light); color: var(--cyan); }
-.pillar-integrations .pillar-to { border-left: 3px solid var(--cyan); }
+.pillar-payments .pillar-icon { background: var(--green-light); color: var(--green); }
+.pillar-payments .arrow-icon { background: var(--green); box-shadow: 0 2px 8px rgba(5,150,105,0.25); }
+.pillar-payments .pillar-to { border-left: 3px solid var(--green); background: rgba(5,150,105,0.03); }
+.pillar-payments .item-to .item-dot { background: var(--green); }
 
 .pillar-mobile .pillar-icon { background: var(--indigo-light); color: var(--indigo); }
-.pillar-mobile .pillar-to { border-left: 3px solid var(--indigo); }
+.pillar-mobile .arrow-icon { background: var(--indigo); box-shadow: 0 2px 8px rgba(79,70,229,0.25); }
+.pillar-mobile .pillar-to { border-left: 3px solid var(--indigo); background: rgba(79,70,229,0.03); }
+.pillar-mobile .item-to .item-dot { background: var(--indigo); }
 
-.pillar-ai .pillar-icon { background: linear-gradient(135deg, var(--innago-blue-light), var(--purple-light)); color: var(--purple); }
-.pillar-ai .pillar-to { border-left: 3px solid var(--purple); background: linear-gradient(90deg, var(--white), rgba(124,58,237,0.02)); }
+.pillar-infra .pillar-icon { background: var(--purple-light); color: var(--purple); }
+.pillar-infra .arrow-icon { background: var(--purple); box-shadow: 0 2px 8px rgba(124,58,237,0.25); }
+.pillar-infra .pillar-to { border-left: 3px solid var(--purple); background: rgba(124,58,237,0.03); }
+.pillar-infra .item-to .item-dot { background: var(--purple); }
+
+.pillar-integrations .pillar-icon { background: var(--cyan-light); color: var(--cyan); }
+.pillar-integrations .arrow-icon { background: var(--cyan); box-shadow: 0 2px 8px rgba(8,145,178,0.25); }
+.pillar-integrations .pillar-to { border-left: 3px solid var(--cyan); background: rgba(8,145,178,0.03); }
+.pillar-integrations .item-to .item-dot { background: var(--cyan); }
+
+.pillar-ai .pillar-icon { background: var(--amber-light); color: var(--amber); }
+.pillar-ai .arrow-icon { background: var(--amber); box-shadow: 0 2px 8px rgba(217,119,6,0.25); }
+.pillar-ai .pillar-to { border-left: 3px solid var(--amber); background: rgba(217,119,6,0.03); }
+.pillar-ai .item-to .item-dot { background: var(--amber); }
 
 /* ─── Bottom stats strip ─── */
 .bottom-strip {
@@ -418,7 +387,34 @@ body {
 }
 
 /* ─── Footer ─── */
-.footer {
+/* ─── Heatmap (from Capability Maturity) ─── */
+.maturity-section { max-width: 1200px; margin: 0 auto; padding: 48px 48px 0; }
+.maturity-title { font-size: 13px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.maturity-sub { font-size: 16px; color: var(--gray-500); margin-bottom: 24px; line-height: 1.6; }
+
+.heatmap-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); padding: 32px 36px 28px; margin-bottom: 24px; }
+.heatmap-table { width: 100%; border-collapse: separate; border-spacing: 4px; }
+.heatmap-table th { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.8px; padding: 8px 4px; text-align: center; white-space: nowrap; }
+.heatmap-table th.pillar-th { text-align: right; padding-right: 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: var(--gray-700); text-transform: none; letter-spacing: 0; }
+.heatmap-cell { width: 48px; height: 40px; border-radius: 6px; text-align: center; vertical-align: middle; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; transition: transform 0.15s; cursor: default; position: relative; }
+.heatmap-cell:hover { transform: scale(1.1); z-index: 2; }
+.heatmap-cell.intensity-0 { background: var(--gray-50); color: var(--gray-300); }
+.heatmap-cell.intensity-1 { color: var(--white); }
+.heatmap-cell.intensity-2 { color: var(--white); }
+.heatmap-cell.intensity-3 { color: var(--white); }
+.total-cell { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--gray-800); text-align: center; padding: 8px; background: var(--gray-50); border-radius: 6px; }
+
+.detail-panel { background: var(--white); border-radius: var(--radius); border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); padding: 28px 32px; display: none; margin-bottom: 24px; }
+.detail-panel.visible { display: block; }
+.detail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.detail-title { font-size: 15px; font-weight: 700; color: var(--gray-800); }
+.detail-close { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--gray-200); background: var(--white); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--gray-500); transition: all 0.15s; }
+.detail-close:hover { background: var(--gray-100); }
+.detail-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 8px; }
+.detail-item { display: flex; align-items: flex-start; gap: 8px; padding: 10px 14px; border-radius: 8px; background: var(--gray-50); font-size: 13px; color: var(--gray-700); font-weight: 500; line-height: 1.45; }
+.detail-item-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
   text-align: center;
   padding: 0 48px 40px;
   font-family: 'JetBrains Mono', monospace;
@@ -443,14 +439,13 @@ body {
   .pillar-from, .pillar-to { padding: 16px 20px; }
   .pillar-from::before, .pillar-to::before { top: 6px; }
   .pillar-arrow { padding: 8px; }
-  .header { flex-direction: column; }
-  .header-right { align-items: flex-start; padding-top: 20px; }
+  .header-inner { padding: 0 20px; }
   .strip-inner { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-  .header, .pillars-section, .bottom-strip { padding-left: 20px; padding-right: 20px; }
-  .header h1 { font-size: 28px; }
+  .pillars-section, .bottom-strip { padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 28px; }
 }
 
 /* ─── Shared Nav ─── */
@@ -477,19 +472,13 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
   font-weight: 800;
-  color: #1A56DB;
+  color: #3498DB;
   text-decoration: none;
   margin-right: 12px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-.site-nav-home .nav-logo {
-  width: 22px; height: 22px;
-  background: #1A56DB; border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 10px; font-weight: 800;
 }
 .site-nav-link {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -503,7 +492,7 @@ body {
   transition: all 0.15s;
 }
 .site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
-.site-nav-link.active { background: #F5F8FF; color: #1A56DB; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
 @media (max-width: 800px) {
   .site-nav { padding: 0 16px; }
   .site-nav-inner { gap: 2px; }
@@ -515,66 +504,33 @@ body {
 
 <div class="top-bar"></div>
 <nav class="site-nav"><div class="site-nav-inner">
-<a href="index.html" class="site-nav-home"><span class="nav-logo">in</span>Portfolio</a>
+<a href="index.html" class="site-nav-home">innago</a>
 <a href="innago-exec-summary.html" class="site-nav-link ">Summary</a>
 <a href="innago-3yr-release-timeline.html" class="site-nav-link ">Timeline</a>
 <a href="innago-platform-evolution.html" class="site-nav-link active">Evolution</a>
-<a href="innago-capability-maturity.html" class="site-nav-link ">Maturity</a>
-<a href="innago-velocity-dashboard.html" class="site-nav-link ">Velocity</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link ">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link ">Team & Roadmap</a>
 <a href="innago-ai-reality-check.html" class="site-nav-link ">AI Reality</a>
 </div></nav>
 
-<div class="header">
-  <div class="header-left">
-    <div class="logo-row">
-      <div class="logo-mark">in</div>
-      <span class="logo-text">innago</span>
-    </div>
-    <h1>Platform <span>Evolution</span></h1>
-    <p class="header-sub">How Innago's technology foundation transformed across 7 capability pillars — from early-stage tooling to a modern, secure, cloud-native platform.</p>
+<div class="header"><div class="header-inner">
+  <span class="header-badge">Platform Evolution · 7 Pillars</span>
+  <div class="epoch-badge">
+    <span class="epoch-label epoch-from">Jan 2023</span>
+    <span class="epoch-arrow">→</span>
+    <span class="epoch-label epoch-to">Mar 2026</span>
   </div>
-  <div class="header-right">
-    <div class="epoch-badge">
-      <span class="epoch-label epoch-from">Jan 2023</span>
-      <span class="epoch-arrow">→</span>
-      <span class="epoch-label epoch-to">Mar 2026</span>
-    </div>
-  </div>
-</div>
+</div></div>
+
+<div class="hero"><div class="hero-inner">
+  <h1>Platform <span>Evolution</span></h1>
+  <p class="header-sub">How Innago's technology foundation transformed across 7 capability pillars — from early-stage tooling to a modern, secure, cloud-native platform.</p>
+</div></div>
 
 <div class="pillars-section">
   <div class="pillars-grid">
 
-    <!-- 1. Payments & Fintech -->
-    <div class="pillar pillar-payments">
-      <div class="pillar-name">
-        <div class="pillar-icon">💳</div>
-        <div>
-          <div class="pillar-title">Payments &<br>Fintech</div>
-          <div class="pillar-subtitle">Revenue engine</div>
-        </div>
-      </div>
-      <div class="pillar-from">
-        <div class="item-list">
-          <div class="item item-from"><span class="item-dot"></span>Basic ACH via Checkbook.io</div>
-          <div class="item item-from"><span class="item-dot"></span>Credit card payments for landlords only</div>
-          <div class="item item-from"><span class="item-dot"></span>No fraud detection layer</div>
-          <div class="item item-from"><span class="item-dot"></span>Single payment processor</div>
-        </div>
-      </div>
-      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="pillar-to">
-        <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>Hyperswitch smart routing across processors <span class="tag-new tag-shipped">SHIPPED</span></div>
-          <div class="item item-to"><span class="item-dot"></span>Livable payment processor + webhooks + partial payments</div>
-          <div class="item item-to"><span class="item-dot"></span>1-day settlement holds for predictable payouts</div>
-          <div class="item item-to"><span class="item-dot"></span>Kount fraud detection on CC & ACH transactions</div>
-          <div class="item item-to"><span class="item-dot"></span>Tenant rent splitting & autopay</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. Identity & Security -->
+    <!-- 1. Identity & Security -->
     <div class="pillar pillar-security">
       <div class="pillar-name">
         <div class="pillar-icon">🛡</div>
@@ -587,23 +543,114 @@ body {
         <div class="item-list">
           <div class="item item-from"><span class="item-dot"></span>Basic 2FA (opt-in/opt-out)</div>
           <div class="item item-from"><span class="item-dot"></span>Standard email/password login</div>
-          <div class="item item-from"><span class="item-dot"></span>No centralized identity provider</div>
-          <div class="item item-from"><span class="item-dot"></span>No KYC or fraud profiling</div>
+          <div class="item item-from"><span class="item-dot"></span>In-house identity and access management</div>
+          <div class="item item-from"><span class="item-dot"></span>Basic KYC and fraud detection</div>
         </div>
       </div>
       <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
       <div class="pillar-to">
         <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>Auth0 — ~300K users migrated <span class="tag-new tag-shipped">SHIPPED</span></div>
+          <div class="item item-to"><span class="item-dot"></span>Auth0 — ~300K users migrated</div>
           <div class="item item-to"><span class="item-dot"></span>MFA enforced on sub-users, bank changes, profile updates</div>
           <div class="item item-to"><span class="item-dot"></span>Passwordless & social logins (Sign in with Apple)</div>
-          <div class="item item-to"><span class="item-dot"></span>Socure KYC + fraud profile enhancements</div>
+          <div class="item item-to"><span class="item-dot"></span>Socure KYC + SIFT fraud detection</div>
           <div class="item item-to"><span class="item-dot"></span>Breach detection & anomaly protection via Auth0</div>
+          <div class="item item-to"><span class="item-dot"></span>Firewall rules for bot detection & DDoS protection</div>
         </div>
       </div>
     </div>
 
-    <!-- 3. Infrastructure -->
+    <!-- 2. User Experience -->
+    <div class="pillar pillar-tenant">
+      <div class="pillar-name">
+        <div class="pillar-icon">🏠</div>
+        <div>
+          <div class="pillar-title">User<br>Experience</div>
+          <div class="pillar-subtitle">Landlords & tenants</div>
+        </div>
+      </div>
+      <div class="pillar-from">
+        <div class="item-list">
+          <div class="item item-from"><span class="item-dot"></span>Basic tenant portal, limited landlord dashboard</div>
+          <div class="item item-from"><span class="item-dot"></span>Limited search and filtering</div>
+          <div class="item item-from"><span class="item-dot"></span>Basic maintenance workflows</div>
+          <div class="item item-from"><span class="item-dot"></span>Basic credit and background checks</div>
+        </div>
+      </div>
+      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="pillar-to">
+        <div class="item-list">
+          <div class="item item-to"><span class="item-dot"></span>Smart Search & Multifilters across all modules</div>
+          <div class="item item-to"><span class="item-dot"></span>New Properties module for all landlords</div>
+          <div class="item item-to"><span class="item-dot"></span>Redesigned Maintenance module (tenants + landlords)</div>
+          <div class="item item-to"><span class="item-dot"></span>Premium Credit Reporting (Experian + Transunion)</div>
+          <div class="item item-to"><span class="item-dot"></span>Announcements, Damage Reports, Renters Insurance</div>
+          <div class="item item-to"><span class="item-dot"></span>Sub-user management + PO approval workflows</div>
+          <div class="item item-to"><span class="item-dot"></span>Redesigned dashboards + reporting views</div>
+          <div class="item item-to"><span class="item-dot"></span>Tenant 2FA, WebView, rent splitting</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Payments & Fintech -->
+    <div class="pillar pillar-payments">
+      <div class="pillar-name">
+        <div class="pillar-icon">💳</div>
+        <div>
+          <div class="pillar-title">Payments &<br>Fintech</div>
+          <div class="pillar-subtitle">Revenue engine</div>
+        </div>
+      </div>
+      <div class="pillar-from">
+        <div class="item-list">
+          <div class="item item-from"><span class="item-dot"></span>ACH via Checkbook.io, credit cards via Authorize.Net</div>
+          <div class="item item-from"><span class="item-dot"></span>Multiple processors with separate integrations</div>
+          <div class="item item-from"><span class="item-dot"></span>Basic fraud detection</div>
+          <div class="item item-from"><span class="item-dot"></span>No instant payout capabilities</div>
+        </div>
+      </div>
+      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="pillar-to">
+        <div class="item-list">
+          <div class="item item-to"><span class="item-dot"></span>Hyperswitch — unified integration layer with smart routing across processors</div>
+          <div class="item item-to"><span class="item-dot"></span>Livable payment processor + webhooks + partial payments</div>
+          <div class="item item-to"><span class="item-dot"></span>1-day settlement holds for predictable payouts</div>
+          <div class="item item-to"><span class="item-dot"></span>Instant Payouts for landlords</div>
+          <div class="item item-to"><span class="item-dot"></span>SIFT AI-powered payment fraud detection & chargeback prevention</div>
+          <div class="item item-to"><span class="item-dot"></span>Tenant rent splitting & autopay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Mobile -->
+    <div class="pillar pillar-mobile">
+      <div class="pillar-name">
+        <div class="pillar-icon">📱</div>
+        <div>
+          <div class="pillar-title">Mobile<br>Platform</div>
+          <div class="pillar-subtitle">iOS & Android</div>
+        </div>
+      </div>
+      <div class="pillar-from">
+        <div class="item-list">
+          <div class="item item-from"><span class="item-dot"></span>React Native app with core features, limited parity with web</div>
+          <div class="item item-from"><span class="item-dot"></span>Limited chat and support capabilities</div>
+          <div class="item item-from"><span class="item-dot"></span>Limited search, filtering, and reporting</div>
+        </div>
+      </div>
+      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+      <div class="pillar-to">
+        <div class="item-list">
+          <div class="item item-to"><span class="item-dot"></span>Feature parity with web — Properties, Maintenance, Smart Search, Chat, Reports via web views and native modules</div>
+          <div class="item item-to"><span class="item-dot"></span>Auth0 login, Tenant 2FA, Renters Insurance on mobile</div>
+          <div class="item item-to"><span class="item-dot"></span>Transaction Reports, Dashboard Stats, Instant Payouts</div>
+          <div class="item item-to"><span class="item-dot"></span>Readyly support chat integration</div>
+          <div class="item item-to"><span class="item-dot"></span>React Native upgrade + ~16KB payload reduction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Infrastructure & DevOps -->
     <div class="pillar pillar-infra">
       <div class="pillar-name">
         <div class="pillar-icon">⚙️</div>
@@ -616,15 +663,15 @@ body {
         <div class="item-list">
           <div class="item item-from"><span class="item-dot"></span>On-prem data center hosting</div>
           <div class="item item-from"><span class="item-dot"></span>K3S lightweight Kubernetes</div>
-          <div class="item item-from"><span class="item-dot"></span>Manual deployment pipelines</div>
+          <div class="item item-from"><span class="item-dot"></span>Bitbucket for SCM, Bitbucket Pipelines + TeamCity for .NET deployments, Jira for project tracking</div>
           <div class="item item-from"><span class="item-dot"></span>.NET Core (pre-.NET 6)</div>
         </div>
       </div>
       <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
       <div class="pillar-to">
         <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>Full AWS EKS migration from data center <span class="tag-new tag-shipped">SHIPPED</span></div>
-          <div class="item item-to"><span class="item-dot"></span>All services on GitHub pipelines — standardized CI/CD</div>
+          <div class="item item-to"><span class="item-dot"></span>Full AWS EKS migration from data center</div>
+          <div class="item item-to"><span class="item-dot"></span>Consolidated on GitHub — code, CI/CD pipelines, and project management</div>
           <div class="item item-to"><span class="item-dot"></span>Redis & RabbitMQ moved to Kubernetes</div>
           <div class="item item-to"><span class="item-dot"></span>.NET upgrades + Angular micro-frontend architecture</div>
           <div class="item item-to"><span class="item-dot"></span>Monitoring dashboards + Apono access management</div>
@@ -632,36 +679,7 @@ body {
       </div>
     </div>
 
-    <!-- 4. Tenant Experience -->
-    <div class="pillar pillar-tenant">
-      <div class="pillar-name">
-        <div class="pillar-icon">🏠</div>
-        <div>
-          <div class="pillar-title">Tenant<br>Experience</div>
-          <div class="pillar-subtitle">User-facing product</div>
-        </div>
-      </div>
-      <div class="pillar-from">
-        <div class="item-list">
-          <div class="item item-from"><span class="item-dot"></span>Basic tenant portal</div>
-          <div class="item item-from"><span class="item-dot"></span>No smart search or filtering</div>
-          <div class="item item-from"><span class="item-dot"></span>Limited maintenance workflow</div>
-          <div class="item item-from"><span class="item-dot"></span>No credit reporting for tenants</div>
-        </div>
-      </div>
-      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="pillar-to">
-        <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>Smart Search & Multifilters across all modules <span class="tag-new tag-shipped">SHIPPED</span></div>
-          <div class="item item-to"><span class="item-dot"></span>Full Maintenance module with tenant-side workflows</div>
-          <div class="item item-to"><span class="item-dot"></span>Premium Credit Reporting (Experian + Transunion)</div>
-          <div class="item item-to"><span class="item-dot"></span>Tenant 2FA, WebView, rent splitting, damage reports</div>
-          <div class="item item-to"><span class="item-dot"></span>Renters insurance integration + Latchel SDK</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. Integrations -->
+    <!-- 6. Integrations -->
     <div class="pillar pillar-integrations">
       <div class="pillar-name">
         <div class="pillar-icon">🔗</div>
@@ -672,48 +690,22 @@ body {
       </div>
       <div class="pillar-from">
         <div class="item-list">
-          <div class="item item-from"><span class="item-dot"></span>Zillow basic feed</div>
-          <div class="item item-from"><span class="item-dot"></span>QuickBlox chat (legacy)</div>
-          <div class="item item-from"><span class="item-dot"></span>Tropicana API (early)</div>
-          <div class="item item-from"><span class="item-dot"></span>No marketing or analytics stack</div>
+          <div class="item item-from"><span class="item-dot"></span>Zillow basic listing feed</div>
+          <div class="item item-from"><span class="item-dot"></span>Basic marketing and analytics tools</div>
+          <div class="item item-from"><span class="item-dot"></span>No accounting integrations</div>
+          <div class="item item-from"><span class="item-dot"></span>TransUnion for screening and credit reporting</div>
         </div>
       </div>
       <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
       <div class="pillar-to">
         <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>QuickBooks sync for landlord accounting</div>
-          <div class="item item-to"><span class="item-dot"></span>Brevo + HubSpot marketing automation</div>
-          <div class="item item-to"><span class="item-dot"></span>Heap analytics + GA4 + Innago Insights</div>
-          <div class="item item-to"><span class="item-dot"></span>Experian + Transunion screening</div>
-          <div class="item item-to"><span class="item-dot"></span>Readyly chat + Latchel maintenance + Zillow Feed v2</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 6. Mobile -->
-    <div class="pillar pillar-mobile">
-      <div class="pillar-name">
-        <div class="pillar-icon">📱</div>
-        <div>
-          <div class="pillar-title">Mobile<br>Platform</div>
-          <div class="pillar-subtitle">iOS & Android</div>
-        </div>
-      </div>
-      <div class="pillar-from">
-        <div class="item-list">
-          <div class="item item-from"><span class="item-dot"></span>Minimal React Native app</div>
-          <div class="item item-from"><span class="item-dot"></span>No chat on mobile</div>
-          <div class="item item-from"><span class="item-dot"></span>Limited module coverage</div>
-          <div class="item item-from"><span class="item-dot"></span>Older RN version (0.68)</div>
-        </div>
-      </div>
-      <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="pillar-to">
-        <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>React Native 0.72 + ~16 KB payload reduction</div>
-          <div class="item item-to"><span class="item-dot"></span>Auth0 login + chat + Readyly support on mobile</div>
-          <div class="item item-to"><span class="item-dot"></span>Properties & Maintenance web views on mobile</div>
-          <div class="item item-to"><span class="item-dot"></span>Lease views + mobile-responsive modules</div>
+          <div class="item item-to"><span class="item-dot"></span>Listings: Zillow V2 + RentalSource syndication</div>
+          <div class="item item-to"><span class="item-dot"></span>Marketing & CRM: Brevo drip marketing, HubSpot</div>
+          <div class="item item-to"><span class="item-dot"></span>Accounting: QuickBooks sync, ReiHub</div>
+          <div class="item item-to"><span class="item-dot"></span>Screening & Credit: TransUnion + Experian + Equifax</div>
+          <div class="item item-to"><span class="item-dot"></span>Chat & Support: Readyly support chat</div>
+          <div class="item item-to"><span class="item-dot"></span>Maintenance: Latchel SDK</div>
+          <div class="item item-to"><span class="item-dot"></span>Insurance: Renters insurance integration</div>
         </div>
       </div>
     </div>
@@ -729,19 +721,19 @@ body {
       </div>
       <div class="pillar-from">
         <div class="item-list">
-          <div class="item item-from"><span class="item-dot"></span>No analytics infrastructure</div>
-          <div class="item item-from"><span class="item-dot"></span>No data warehouse</div>
-          <div class="item item-from"><span class="item-dot"></span>Manual support ticket handling</div>
-          <div class="item item-from"><span class="item-dot"></span>No AI/ML capabilities</div>
+          <div class="item item-from"><span class="item-dot"></span>Simple Power BI dashboards</div>
+          <div class="item item-from"><span class="item-dot"></span>Google Analytics for web tracking</div>
+          <div class="item item-from"><span class="item-dot"></span>Simple ETL pipelines for Power BI</div>
+          <div class="item item-from"><span class="item-dot"></span>No data warehouse or AI/ML capabilities</div>
         </div>
       </div>
       <div class="pillar-arrow"><div class="arrow-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
       <div class="pillar-to">
         <div class="item-list">
-          <div class="item item-to"><span class="item-dot"></span>Innago Insights analytics platform <span class="tag-new tag-shipped">SHIPPED</span></div>
+          <div class="item item-to"><span class="item-dot"></span>Enhanced ETL and Power BI capabilities</div>
           <div class="item item-to"><span class="item-dot"></span>Snowflake data warehouse + Snowflake AI Insights <span class="tag-new tag-progress">IN PROGRESS</span></div>
           <div class="item item-to"><span class="item-dot"></span>AI agents for Freshdesk support — auto-triage & fix <span class="tag-new tag-progress">IN PROGRESS</span></div>
-          <div class="item item-to"><span class="item-dot"></span>Heap + GA4 + Brevo behavioral analytics stack</div>
+          <div class="item item-to"><span class="item-dot"></span>Heap product analytics + GA4 web/app analytics</div>
           <div class="item item-to"><span class="item-dot"></span>Market rental rate intelligence</div>
         </div>
       </div>
@@ -750,28 +742,26 @@ body {
   </div>
 </div>
 
-<div class="bottom-strip">
-  <div class="strip-inner">
-    <div class="strip-stat">
-      <div class="strip-num">265</div>
-      <div class="strip-label">Production Releases</div>
+</div>
+
+<div class="maturity-section">
+  <div class="maturity-title">Investment Across 7 Pillars, Quarter by Quarter</div>
+  <div class="maturity-sub">165 milestones showing how each capability area deepened over 12 quarters. Click any cell to drill into specifics.</div>
+  <div class="heatmap-card">
+    <div style="overflow-x:auto;">
+      <table class="heatmap-table" id="heatmap"></table>
     </div>
-    <div class="strip-stat">
-      <div class="strip-num">13</div>
-      <div class="strip-label">Quarters Shipping</div>
+  </div>
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-header">
+      <span class="detail-title" id="detailTitle"></span>
+      <button class="detail-close" onclick="closeDetail()">✕</button>
     </div>
-    <div class="strip-stat">
-      <div class="strip-num">7</div>
-      <div class="strip-label">Platform Pillars</div>
-    </div>
-    <div class="strip-stat">
-      <div class="strip-num">15+</div>
-      <div class="strip-label">Integrations Added</div>
-    </div>
+    <div class="detail-items" id="detailItems"></div>
   </div>
 </div>
 
-<div class="footer">Innago Engineering · Platform Evolution · Jan 2023 – Mar 2026</div>
+<div class="footer">Innago Engineering Portfolio</div>
 
 <script>
 // Staggered entrance animation for pillars
@@ -800,6 +790,95 @@ setTimeout(() => {
     }
   });
 }, 100);
+
+// ─── HEATMAP DATA & RENDERING ───
+const HEATMAP_DATA = {"quarters": ["Q1 2023", "Q2 2023", "Q3 2023", "Q4 2023", "Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025"], "pillars": ["Identity & Security", "User Experience", "Payments & Fintech", "Mobile", "Infrastructure", "Integrations", "Analytics & AI"], "matrix": {"Q1 2023": {"Identity & Security": 1, "User Experience": 2, "Payments & Fintech": 2, "Mobile": 0, "Infrastructure": 3, "Integrations": 2, "Analytics & AI": 0}, "Q2 2023": {"Identity & Security": 0, "User Experience": 5, "Payments & Fintech": 1, "Mobile": 0, "Infrastructure": 1, "Integrations": 2, "Analytics & AI": 0}, "Q3 2023": {"Identity & Security": 1, "User Experience": 4, "Payments & Fintech": 2, "Mobile": 0, "Infrastructure": 3, "Integrations": 0, "Analytics & AI": 0}, "Q4 2023": {"Identity & Security": 2, "User Experience": 3, "Payments & Fintech": 1, "Mobile": 1, "Infrastructure": 3, "Integrations": 2, "Analytics & AI": 2}, "Q1 2024": {"Identity & Security": 3, "User Experience": 4, "Payments & Fintech": 3, "Mobile": 0, "Infrastructure": 2, "Integrations": 3, "Analytics & AI": 1}, "Q2 2024": {"Identity & Security": 1, "User Experience": 5, "Payments & Fintech": 3, "Mobile": 2, "Infrastructure": 2, "Integrations": 4, "Analytics & AI": 3}, "Q3 2024": {"Identity & Security": 2, "User Experience": 2, "Payments & Fintech": 2, "Mobile": 0, "Infrastructure": 2, "Integrations": 0, "Analytics & AI": 1}, "Q4 2024": {"Identity & Security": 2, "User Experience": 2, "Payments & Fintech": 2, "Mobile": 0, "Infrastructure": 1, "Integrations": 3, "Analytics & AI": 2}, "Q1 2025": {"Identity & Security": 4, "User Experience": 5, "Payments & Fintech": 4, "Mobile": 0, "Infrastructure": 2, "Integrations": 4, "Analytics & AI": 1}, "Q2 2025": {"Identity & Security": 4, "User Experience": 5, "Payments & Fintech": 4, "Mobile": 0, "Infrastructure": 5, "Integrations": 2, "Analytics & AI": 0}, "Q3 2025": {"Identity & Security": 3, "User Experience": 4, "Payments & Fintech": 1, "Mobile": 2, "Infrastructure": 2, "Integrations": 1, "Analytics & AI": 0}, "Q4 2025": {"Identity & Security": 3, "User Experience": 2, "Payments & Fintech": 3, "Mobile": 0, "Infrastructure": 4, "Integrations": 0, "Analytics & AI": 0}}, "items": {"Q1 2023|Identity & Security": ["2FA (opt in – opt out feature)"], "Q1 2023|User Experience": ["Chat - Phase 1", "Tenant WebView 90% completed"], "Q1 2023|Payments & Fintech": ["Checkbook.io for NACHA payments", "Credit Card Payment on Invoice by landlords"], "Q1 2023|Infrastructure": ["Kubernetes implemented", "Speed Improvements", "Local time zone implementation"], "Q1 2023|Integrations": ["Zillow & Rental Source Listing Integration", "OpenAPI for Tropicana"], "Q2 2023|User Experience": ["Applicant Income Reporting", "Tenant WebView", "Multiple-Documents", "Announcements V1", "Chat Phase 1.2"], "Q2 2023|Payments & Fintech": ["Deposit Return"], "Q2 2023|Infrastructure": ["Speed Improvements (notifications, emails, late fee — parallel jobs)"], "Q2 2023|Integrations": ["Tropicana API", "Tropicana Phase 2 Integration"], "Q3 2023|Identity & Security": ["Firewall Upgraded for performance enhancements"], "Q3 2023|User Experience": ["Applicant Income Reporting", "Announcements V1 & V2", "Multiple-Documents", "Chat improvements"], "Q3 2023|Payments & Fintech": ["Security Deposit Return V1 & V2", "Fraud Profile Enhancements"], "Q3 2023|Infrastructure": [".NET Core upgrade to .NET 6", "Monitoring individual Micro Services", "Nodes and Capacity increased"], "Q4 2023|Identity & Security": ["Socure KYC", "2FA on Profile and Bank Detail Changes for Landlords"], "Q4 2023|User Experience": ["Direct Renters Insurance", "Direct Forms and Documents", "Chat Phase 2"], "Q4 2023|Payments & Fintech": ["Kount (Transactional Fraud Detection)"], "Q4 2023|Mobile": ["Chat on Mobile"], "Q4 2023|Infrastructure": ["Redis cache moved to Kubernetes", "Monitoring and Observability added", "Infrastructure resource tracking"], "Q4 2023|Integrations": ["ReiHub Integration", "API Documentation Connectors"], "Q4 2023|Analytics & AI": ["Market Rental", "GA4"], "Q1 2024|Identity & Security": ["Add invalid domain sub-users", "Sign in with Apple for Web", "MFA Transunion"], "Q1 2024|User Experience": ["SMS", "Commercial Units support", "DTC Background check", "Lease improvements"], "Q1 2024|Payments & Fintech": ["Tenant Payment Redirect", "Allow Negative Expense", "Payment History UI Update"], "Q1 2024|Infrastructure": ["Monitoring Visual Dashboard", "Queue Optimizations"], "Q1 2024|Integrations": ["QuickBooks", "Zillow Feed Connect Updates", "ReiHub Improvement"], "Q1 2024|Analytics & AI": ["Rent Roll Report updates"], "Q2 2024|Identity & Security": ["Reset Password on Next Login"], "Q2 2024|User Experience": ["Tenant Property Tags", "Custom Property Address for POs", "Premium Credit Reporting", "Forward Maintenance Ticket", "Copy Contact Info"], "Q2 2024|Payments & Fintech": ["Tenant Rent Split", "Kount for CC and ACH", "Address Update for Future Invoices"], "Q2 2024|Mobile": ["Properties web views on mobile", "React Native 0.68 → 0.72"], "Q2 2024|Infrastructure": ["Building-Blocks package updates", "RabbitMQ moved to Kubernetes"], "Q2 2024|Integrations": ["Customer Referral", "Readyly chat", "Apple Search Data", "IP Registry"], "Q2 2024|Analytics & AI": ["Transaction Report", "P/L Report Export formats", "PO Dashboard Updates"], "Q3 2024|Identity & Security": ["Audit Logs", "Suspicious / Locked Out Accounts"], "Q3 2024|User Experience": ["Smart Search and Multifilters across all modules", "DTC Background Check Improvements"], "Q3 2024|Payments & Fintech": ["Autopay Updates", "Livable Payment Processor"], "Q3 2024|Infrastructure": ["Properties MS", "Notification Queue Optimization"], "Q3 2024|Analytics & AI": ["Market Rate updates"], "Q4 2024|Identity & Security": ["2FA Opt Out Disabled", "2FA in add sub user"], "Q4 2024|User Experience": ["New Maintenance Module", "Latchel SDK Integration"], "Q4 2024|Payments & Fintech": ["Livable Widget + Webhooks + Partial Payments", "Micro Deposit Updates"], "Q4 2024|Infrastructure": ["AWS Migration from Data Center"], "Q4 2024|Integrations": ["Brevo Integration + new events", "GA in Marketing MS", "Innago Insights"], "Q4 2024|Analytics & AI": ["Transaction Report Updates", "Dashboard Stats Update"], "Q1 2025|Identity & Security": ["MFA for sub users and bank changes", "PO Approvals for Bank changes", "Firewall Rules Updates", "Apono Access Management"], "Q1 2025|User Experience": ["New Properties and Maintenance for all users", "Damage Reports", "Transunion Updates", "Experian Implementation", "Module improvements"], "Q1 2025|Payments & Fintech": ["Livable Payment Updates", "Deposit/Bank Reports improved", "Failed Reversals emails", "Late Fee timezone updates"], "Q1 2025|Infrastructure": ["New Code Repositories and Pipelines", "Ledger Infrastructure Setup"], "Q1 2025|Integrations": ["HubSpot Contacts separation", "Brevo-HubSpot Integration", "New Brevo Events", "Heap Integration"], "Q1 2025|Analytics & AI": ["Expandable Transaction Records"], "Q2 2025|Identity & Security": ["Voice call OTP for 2FA", "2FA Opt-Out button", "Tenant 2FA", "Locking sub-users"], "Q2 2025|User Experience": ["Experian Updates", "Premium Credit Reporting Updates", "Tenant Maintenance Module", "Custom Categories for Sub Users", "Maintenance Widget"], "Q2 2025|Payments & Fintech": ["Invoice Sidebar", "Recover Funds from Deleted Banks", "Livable Advertisement", "Hyperswitch for Payments"], "Q2 2025|Infrastructure": ["Datacenter to AWS EKS", "GitHub Pipelines setup", "React Library Updates", "Typesense search", "EON Cloud Backup"], "Q2 2025|Integrations": ["Brevo trigger updates", "Heap Integration"], "Q3 2025|Identity & Security": ["Auth0 – MFA, Passwordless, Social logins", "Subuser can add Subuser", "Auth0 breach detection & anomaly protection"], "Q3 2025|User Experience": ["Properties UI Improvements", "Maintenance Module updates", "Smart Search on Maintenance", "Renters Insurance Updates"], "Q3 2025|Payments & Fintech": ["Hyperswitch for Credit Cards"], "Q3 2025|Mobile": ["Properties Web Views on Mobile", "Readyly support on mobile"], "Q3 2025|Infrastructure": ["AWS EKS migration continued", "GitHub Pipelines setup"], "Q3 2025|Integrations": ["New Brevo Events"], "Q4 2025|Identity & Security": ["~300K users migrated to Auth0", "Auth0 login on mobile", "Auth0 org-level auth (enables Fynn)"], "Q4 2025|User Experience": ["Maintenance Smart Filters and disclaimers", "Renters Insurance side panels and consent"], "Q4 2025|Payments & Fintech": ["1-day settlement holds", "Hyperswitch-based CC routing", "Hyperswitch enables Payload"], "Q4 2025|Infrastructure": ["K3S to Amazon EKS", ".NET upgrades + Angular micro-frontend", "All services on GitHub pipelines", "Admin/support tool embedded"]}};
+
+const hmPillars = HEATMAP_DATA.pillars;
+const hmQuarters = HEATMAP_DATA.quarters;
+const hmMatrix = HEATMAP_DATA.matrix;
+const hmItems = HEATMAP_DATA.items;
+
+const HM_COLORS = {
+  'Identity & Security': '#E11D48',
+  'User Experience': '#3498DB',
+  'Payments & Fintech': '#059669',
+  'Mobile': '#4F46E5',
+  'Infrastructure': '#7C3AED',
+  'Integrations': '#0891B2',
+  'Analytics & AI': '#D97706'
+};
+
+function escHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function renderHeatmap() {
+  const table = document.getElementById('heatmap');
+  let html = '<thead><tr><th class="pillar-th"></th>';
+  hmQuarters.forEach(q => { html += '<th>' + escHtml(q.replace('20', "'")) + '</th>'; });
+  html += '<th>Total</th></tr></thead><tbody>';
+
+  hmPillars.forEach((p, pi) => {
+    html += '<tr>';
+    html += '<th class="pillar-th"><span style="color:' + HM_COLORS[p] + '">●</span> ' + escHtml(p) + '</th>';
+    let total = 0;
+    hmQuarters.forEach((q, qi) => {
+      const count = hmMatrix[q][p];
+      total += count;
+      const intensity = count === 0 ? 0 : count <= 1 ? 1 : count <= 3 ? 2 : 3;
+      const bgStyle = count === 0 ? '' : 'background:' + HM_COLORS[p] + ';opacity:' + (0.3 + intensity * 0.23);
+      const key = q + '|' + p;
+      const hasItems = hmItems[key] && hmItems[key].length > 0;
+      const cursor = hasItems ? ';cursor:pointer' : '';
+      html += '<td class="heatmap-cell intensity-' + intensity + '" style="' + bgStyle + cursor + '" data-qi="' + qi + '" data-pi="' + pi + '">' + (count || '–') + '</td>';
+    });
+    html += '<td class="total-cell">' + total + '</td>';
+    html += '</tr>';
+  });
+
+  html += '<tr><th class="pillar-th" style="font-weight:700">Total</th>';
+  let grandTotal = 0;
+  hmQuarters.forEach(q => {
+    let qTotal = 0;
+    hmPillars.forEach(p => { qTotal += hmMatrix[q][p]; });
+    grandTotal += qTotal;
+    html += '<td class="total-cell">' + qTotal + '</td>';
+  });
+  html += '<td class="total-cell" style="color:var(--innago-blue);font-size:14px">' + grandTotal + '</td>';
+  html += '</tr></tbody>';
+  table.innerHTML = html;
+
+  table.addEventListener('click', function(e) {
+    const cell = e.target.closest('.heatmap-cell');
+    if (!cell) return;
+    const qi = parseInt(cell.dataset.qi);
+    const pi = parseInt(cell.dataset.pi);
+    if (isNaN(qi) || isNaN(pi)) return;
+    showDetail(hmQuarters[qi], hmPillars[pi]);
+  });
+}
+
+function showDetail(q, p) {
+  const key = q + '|' + p;
+  const detailItemsList = hmItems[key] || [];
+  if (detailItemsList.length === 0) return;
+  document.getElementById('detailTitle').textContent = p + ' — ' + q + ' (' + detailItemsList.length + ' milestones)';
+  document.getElementById('detailItems').innerHTML = detailItemsList.map(function(item) {
+    return '<div class="detail-item"><div class="detail-item-dot" style="background:' + HM_COLORS[p] + '"></div>' + escHtml(item) + '</div>';
+  }).join('');
+  const panel = document.getElementById('detailPanel');
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closeDetail() {
+  document.getElementById('detailPanel').classList.remove('visible');
+}
+
+renderHeatmap();
 </script>
 </body>
 </html>

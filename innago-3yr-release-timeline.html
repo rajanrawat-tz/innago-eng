@@ -8,13 +8,13 @@
 <style>
 :root {
   /* Innago brand palette */
-  --innago-blue: #1A56DB;
+  --innago-blue: #3498DB;
   --innago-blue-dark: #1040A8;
   --innago-blue-light: #E8EFFC;
   --innago-blue-50: #F0F5FF;
   --innago-blue-100: #DBE8FE;
   --innago-blue-200: #BCCFFC;
-  --innago-blue-600: #1A56DB;
+  --innago-blue-600: #3498DB;
   --innago-blue-700: #1040A8;
   --innago-blue-800: #0D357A;
 
@@ -32,7 +32,7 @@
   --gray-900: #111827;
 
   /* Semantic colors */
-  --feature: #1A56DB;
+  --feature: #3498DB;
   --infra: #7C3AED;
   --support: #D97706;
 
@@ -85,32 +85,6 @@ body {
   height: 64px;
 }
 
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo-mark {
-  width: 34px;
-  height: 34px;
-  background: var(--innago-blue);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: -0.5px;
-}
-
-.logo-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--gray-900);
-  letter-spacing: -0.3px;
-}
 
 .header-badge {
   font-family: 'JetBrains Mono', monospace;
@@ -609,17 +583,14 @@ body {
 }
 
 /* ─── Footer ─── */
-.footer {
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 48px 48px;
   text-align: center;
-}
-
-.footer-text {
-  font-size: 12px;
-  color: var(--gray-400);
   font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
 }
 
 /* ─── Empty state ─── */
@@ -647,7 +618,7 @@ body {
 
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
-  .hero-inner, .stats-section, .controls-section, .timeline-container, .header, .footer { padding-left: 24px; padding-right: 24px; }
+  .hero-inner, .stats-section, .controls-section, .timeline-container, .header, .footer { border-top: 1px solid var(--gray-200); padding-top: 24px; padding-left: 24px; padding-right: 24px; }
   .hero h1 { font-size: 32px; }
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .roadmap-items, .release-items { grid-template-columns: 1fr; }
@@ -677,19 +648,13 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
   font-weight: 800;
-  color: #1A56DB;
+  color: #3498DB;
   text-decoration: none;
   margin-right: 12px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-.site-nav-home .nav-logo {
-  width: 22px; height: 22px;
-  background: #1A56DB; border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 10px; font-weight: 800;
 }
 .site-nav-link {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -703,7 +668,7 @@ body {
   transition: all 0.15s;
 }
 .site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
-.site-nav-link.active { background: #F5F8FF; color: #1A56DB; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
 @media (max-width: 800px) {
   .site-nav { padding: 0 16px; }
   .site-nav-inner { gap: 2px; }
@@ -715,22 +680,18 @@ body {
 
 <div class="top-bar"></div>
 <nav class="site-nav"><div class="site-nav-inner">
-<a href="index.html" class="site-nav-home"><span class="nav-logo">in</span>Portfolio</a>
+<a href="index.html" class="site-nav-home">innago</a>
 <a href="innago-exec-summary.html" class="site-nav-link ">Summary</a>
 <a href="innago-3yr-release-timeline.html" class="site-nav-link active">Timeline</a>
 <a href="innago-platform-evolution.html" class="site-nav-link ">Evolution</a>
-<a href="innago-capability-maturity.html" class="site-nav-link ">Maturity</a>
-<a href="innago-velocity-dashboard.html" class="site-nav-link ">Velocity</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link ">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link ">Team & Roadmap</a>
 <a href="innago-ai-reality-check.html" class="site-nav-link ">AI Reality</a>
 </div></nav>
 
 <div class="header">
   <div class="header-inner">
-    <div class="logo-area">
-      <div class="logo-mark">in</div>
-      <span class="logo-text">innago</span>
-    </div>
-    <span class="header-badge">Engineering Execution Report — 3 Year</span>
+    <span class="header-badge">Release Timeline · 265 Releases</span>
   </div>
 </div>
 
@@ -762,8 +723,7 @@ body {
 
 <div class="timeline-container" id="timeline"></div>
 
-<div class="footer">
-  <div class="footer-text">Innago Engineering · Release Data Jan 2023 – Mar 2026 · 265 Releases · 167 Milestones</div>
+<div class="footer">Innago Engineering Portfolio
 </div>
 
 <script>

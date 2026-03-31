@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --innago-blue: #1A56DB;
-  --innago-blue-dark: #0F3A8F;
-  --innago-blue-50: #F5F8FF;
-  --innago-blue-100: #DBEAFE;
-  --innago-blue-200: #BFCFFC;
+  --innago-blue: #3498DB;
+  --innago-blue-dark: #2176AE;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --innago-blue-200: #AED6F1;
   --white: #FFFFFF;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -49,29 +49,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.top-accent {
-  height: 5px;
-  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--green) 50%, var(--innago-blue) 100%);
-}
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--innago-blue), var(--green), var(--innago-blue)); }
 
 .page { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
 
 /* ─── Header ─── */
-.header {
-  padding: 48px 0 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  opacity:0; animation: fadeIn .5s ease forwards .1s;
-}
-
-.logo-row { display:flex; align-items:center; gap:12px; }
-.logo-mark { width:38px; height:38px; background:var(--innago-blue); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:16px; }
-.logo-text { font-size:20px; font-weight:800; color:var(--gray-900); letter-spacing:-0.3px; }
-
-.header-right { text-align:right; padding-top:4px; }
-.header-badge { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:var(--gray-500); letter-spacing:0.5px; }
-.header-date { font-size:13px; font-weight:600; color:var(--gray-800); margin-top:4px; }
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
+.header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--cyan-light); color: var(--cyan); border-radius: 20px; border: 1px solid #A5F3FC; }
 
 /* ─── Hero ─── */
 .hero {
@@ -596,22 +581,10 @@ body {
 .bottom-text strong { color: var(--gray-800); }
 
 /* ─── Footer ─── */
-.footer {
-  border-top: 1px solid var(--gray-200);
-  padding: 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-left {
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
+  text-align: center;
+  padding: 0 48px 40px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: var(--gray-400);
-  letter-spacing: 0.5px;
-}
-
-.footer-right {
   font-size: 11px;
   color: var(--gray-400);
 }
@@ -645,7 +618,7 @@ body {
   .adoption-visual { grid-template-columns: 1fr; }
   .donut-wrap { margin: 0 auto; }
   .section-heading { font-size: 24px; }
-  .footer { flex-direction: column; gap: 8px; }
+  .footer { border-top: 1px solid var(--gray-200); padding-top: 24px; flex-direction: column; gap: 8px; }
 }
 
 /* ─── Shared Nav ─── */
@@ -672,19 +645,13 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
   font-weight: 800;
-  color: #1A56DB;
+  color: #3498DB;
   text-decoration: none;
   margin-right: 12px;
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 6px;
-}
-.site-nav-home .nav-logo {
-  width: 22px; height: 22px;
-  background: #1A56DB; border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 10px; font-weight: 800;
 }
 .site-nav-link {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -698,7 +665,7 @@ body {
   transition: all 0.15s;
 }
 .site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
-.site-nav-link.active { background: #F5F8FF; color: #1A56DB; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
 @media (max-width: 800px) {
   .site-nav { padding: 0 16px; }
   .site-nav-inner { gap: 2px; }
@@ -708,30 +675,22 @@ body {
 </head>
 <body>
 
-<div class="top-accent"></div>
+<div class="top-bar"></div>
 <nav class="site-nav"><div class="site-nav-inner">
-<a href="index.html" class="site-nav-home"><span class="nav-logo">in</span>Portfolio</a>
+<a href="index.html" class="site-nav-home">innago</a>
 <a href="innago-exec-summary.html" class="site-nav-link ">Summary</a>
 <a href="innago-3yr-release-timeline.html" class="site-nav-link ">Timeline</a>
 <a href="innago-platform-evolution.html" class="site-nav-link ">Evolution</a>
-<a href="innago-capability-maturity.html" class="site-nav-link ">Maturity</a>
-<a href="innago-velocity-dashboard.html" class="site-nav-link ">Velocity</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link ">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link ">Team & Roadmap</a>
 <a href="innago-ai-reality-check.html" class="site-nav-link active">AI Reality</a>
 </div></nav>
 
-<div class="page">
+<div class="header"><div class="header-inner">
+  <span class="header-badge">AI in Engineering</span>
+</div></div>
 
-  <!-- ═══ HEADER ═══ -->
-  <div class="header">
-    <div class="logo-row">
-      <div class="logo-mark">in</div>
-      <div class="logo-text">innago</div>
-    </div>
-    <div class="header-right">
-      <div class="header-badge">AI in Engineering</div>
-      <div class="header-date">March 2026</div>
-    </div>
-  </div>
+<div class="page">
 
   <!-- ═══ HERO ═══ -->
   <div class="hero">
@@ -959,10 +918,7 @@ body {
   </div>
 
   <!-- ═══ FOOTER ═══ -->
-  <div class="footer">
-    <div class="footer-left">Innago Engineering · AI Briefing</div>
-    <div class="footer-right">March 2026 · Confidential</div>
-  </div>
+  <div class="footer">Innago Engineering Portfolio</div>
 
 </div>
 

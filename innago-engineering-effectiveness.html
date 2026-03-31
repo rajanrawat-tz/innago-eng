@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innago — Engineering Effectiveness</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --innago-blue: #3498DB;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --feature: #3498DB;
+  --infra: #7C3AED;
+  --support: #D97706;
+  --feature-light: #EEF2FF;
+  --infra-light: #F3EEFF;
+  --support-light: #FFFBEB;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --rose: #E11D48;
+  --rose-light: #FFF1F2;
+  --cyan: #0891B2;
+  --cyan-light: #ECFEFF;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--green), var(--innago-blue), var(--infra), var(--support)); }
+
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 48px; }
+.header-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--green-light); color: var(--green); border-radius: 20px; border: 1px solid #D1FAE5; }
+
+.hero { background: var(--white); border-bottom: 1px solid var(--gray-200); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 48px 48px 40px; }
+.hero-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); font-weight: 500; margin-bottom: 12px; }
+.hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 10px; }
+.hero h1 span { color: var(--innago-blue); }
+.hero-sub { font-size: 16px; color: var(--gray-500); max-width: 680px; line-height: 1.6; }
+
+.main { max-width: 1200px; margin: 32px auto 0; padding: 0 48px 80px; }
+
+/* ─── DORA overview cards ─── */
+.dora-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.dora-card {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.dora-card:hover { border-color: var(--gray-300); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+.dora-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.dora-card.df::after { background: var(--innago-blue); }
+.dora-card.lt::after { background: var(--green); }
+.dora-card.cfr::after { background: var(--support); }
+.dora-card.mttr::after { background: var(--rose); }
+
+.dora-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 10px;
+}
+
+.dora-card-value {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.dora-card.df .dora-card-value { color: var(--innago-blue); }
+.dora-card.lt .dora-card-value { color: var(--green); }
+.dora-card.cfr .dora-card-value { color: var(--support); }
+.dora-card.mttr .dora-card-value { color: var(--rose); }
+
+.dora-card-unit {
+  font-size: 12px;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.dora-card-trend {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.dora-card-trend.placeholder {
+  background: var(--gray-100);
+  color: var(--gray-400);
+  border: 1px dashed var(--gray-300);
+}
+
+.dora-card-trend.positive {
+  background: var(--green-light);
+  color: var(--green);
+}
+
+/* ─── DORA classification badge ─── */
+.dora-class-row {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.dora-class-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.dora-class-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.dora-class-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.dora-class-badge.current {
+  background: var(--innago-blue-50);
+  color: var(--innago-blue);
+  border: 1px solid var(--innago-blue-100);
+}
+
+.dora-class-badge.target {
+  background: var(--white);
+  color: var(--gray-400);
+  border: 1px dashed var(--gray-300);
+}
+
+.dora-class-arrow {
+  color: var(--gray-300);
+  font-size: 16px;
+}
+
+.dora-class-note {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+/* ─── Chart card ─── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 32px 36px 28px;
+  margin-bottom: 20px;
+}
+
+.card-title { font-size: 17px; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+.card-subtitle { font-size: 13px; color: var(--gray-400); margin-bottom: 24px; }
+
+/* ─── DORA metric charts (lead time, CFR, MTTR) ─── */
+.dora-charts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.dora-chart-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 20px;
+}
+
+.dora-chart-card .card-title { font-size: 15px; margin-bottom: 2px; }
+.dora-chart-card .card-subtitle { font-size: 12px; margin-bottom: 20px; }
+
+.metric-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 120px;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.metric-bars::after {
+  content: '';
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gray-100);
+}
+
+.metric-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.metric-bar {
+  width: 100%;
+  max-width: 32px;
+  border-radius: 4px 4px 0 0;
+  min-height: 2px;
+}
+
+.metric-bar-label {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+.placeholder-overlay {
+  position: relative;
+}
+
+.placeholder-overlay::before {
+  content: 'DATA NEEDED';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-400);
+  letter-spacing: 1px;
+  z-index: 5;
+  background: rgba(249,250,251,0.85);
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px dashed var(--gray-300);
+}
+
+
+/* ─── Insight callout ─── */
+.insight-callout {
+  background: var(--innago-blue-50);
+  border: 1px solid var(--innago-blue-100);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.insight-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--innago-blue);
+  margin-bottom: 4px;
+}
+
+.insight-text p {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px 40px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade { opacity: 0; }
+.fade.in { animation: fadeIn 0.5s ease forwards; }
+
+@media (max-width: 900px) {
+  .hero-inner, .main, .header-inner { padding-left: 24px; padding-right: 24px; }
+  .hero h1 { font-size: 30px; }
+  .dora-overview { grid-template-columns: repeat(2, 1fr); }
+  .dora-charts { grid-template-columns: 1fr; }
+  .dora-class-row { flex-wrap: wrap; gap: 12px; }
+}
+
+@media print {
+  * { animation: none !important; opacity: 1 !important; }
+  .site-nav { display: none; }
+}
+
+/* ─── Shared Nav ─── */
+.site-nav { position: sticky; top: 0; z-index: 999; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #E5E7EB; padding: 0 48px; }
+.site-nav-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; height: 48px; gap: 6px; overflow-x: auto; }
+.site-nav-home { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #3498DB; text-decoration: none; margin-right: 12px; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.site-nav-link { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; color: #6B7280; text-decoration: none; padding: 6px 12px; border-radius: 6px; white-space: nowrap; transition: all 0.15s; }
+.site-nav-link:hover { background: #F3F4F6; color: #1F2937; }
+.site-nav-link.active { background: #EBF5FB; color: #3498DB; }
+@media (max-width: 800px) {
+  .site-nav { padding: 0 16px; }
+  .site-nav-inner { gap: 2px; }
+  .site-nav-link { font-size: 11px; padding: 5px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+<nav class="site-nav"><div class="site-nav-inner">
+<a href="index.html" class="site-nav-home">innago</a>
+<a href="innago-exec-summary.html" class="site-nav-link">Summary</a>
+<a href="innago-3yr-release-timeline.html" class="site-nav-link">Timeline</a>
+<a href="innago-platform-evolution.html" class="site-nav-link">Evolution</a>
+<a href="innago-engineering-effectiveness.html" class="site-nav-link active">DORA</a>
+<a href="innago-team-roadmap.html" class="site-nav-link">Team & Roadmap</a>
+<a href="innago-ai-reality-check.html" class="site-nav-link">AI Reality</a>
+</div></nav>
+
+<div class="header"><div class="header-inner">
+  <span class="header-badge">DORA Metrics · 13 Quarters</span>
+</div></div>
+
+<div class="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">Engineering Effectiveness</div>
+  <h1>From Stabilization to <span>Feature-Led Growth</span></h1>
+  <p class="hero-sub">265 production releases across 13 quarters — measured through DORA metrics, release composition, and delivery cadence. The mix shifted from support-heavy to feature-led as the platform matured.</p>
+</div></div>
+
+<div class="main">
+
+  <!-- DORA Overview Cards -->
+  <div class="dora-overview fade" id="doraCards">
+    <div class="dora-card df">
+      <div class="dora-card-label">Deployment Frequency</div>
+      <div class="dora-card-value" id="dfValue">~7</div>
+      <div class="dora-card-unit">releases / month (avg)</div>
+      <div class="dora-card-trend positive" id="dfTrend">13 consecutive quarters</div>
+    </div>
+    <div class="dora-card lt">
+      <div class="dora-card-label">Lead Time for Changes</div>
+      <div class="dora-card-value" id="ltValue">--</div>
+      <div class="dora-card-unit">median hours PR → deploy</div>
+      <div class="dora-card-trend placeholder" id="ltTrend">AWAITING DATA</div>
+    </div>
+    <div class="dora-card cfr">
+      <div class="dora-card-label">Change Failure Rate</div>
+      <div class="dora-card-value" id="cfrValue">--%</div>
+      <div class="dora-card-unit">of deploys causing hotfix/rollback</div>
+      <div class="dora-card-trend placeholder" id="cfrTrend">AWAITING DATA</div>
+    </div>
+    <div class="dora-card mttr">
+      <div class="dora-card-label">Mean Time to Recovery</div>
+      <div class="dora-card-value" id="mttrValue">--</div>
+      <div class="dora-card-unit">median hours to resolve</div>
+      <div class="dora-card-trend placeholder" id="mttrTrend">AWAITING DATA</div>
+    </div>
+  </div>
+
+  <!-- DORA Classification -->
+  <div class="dora-class-row fade" id="doraClass">
+    <div class="dora-class-label">DORA Classification</div>
+    <div class="dora-class-badges">
+      <span class="dora-class-badge current" id="doraCurrentClass">AWAITING DATA</span>
+      <span class="dora-class-arrow">→</span>
+      <span class="dora-class-badge target" id="doraTargetClass">TARGET: --</span>
+    </div>
+    <div class="dora-class-note">Based on DORA / Accelerate State of DevOps benchmarks</div>
+  </div>
+
+  <!-- Key Insight -->
+  <div class="insight-callout fade" id="insightCallout">
+    <div class="insight-icon">💡</div>
+    <div class="insight-text">
+      <h3>The Composition Shift Tells the Story</h3>
+      <p>In 2023, support releases made up 36% of all deployments — the team was stabilizing. By 2025, feature releases accounted for 73% of output. The platform investment paid off: less firefighting, more building. Infrastructure work spiked in late 2025 during the AWS EKS and Auth0 migrations.</p>
+    </div>
+  </div>
+
+  <!-- DORA Metric Charts (Lead Time, CFR, MTTR) -->
+  <div class="dora-charts fade" id="doraCharts">
+    <div class="dora-chart-card">
+      <div class="card-title">Lead Time for Changes</div>
+      <div class="card-subtitle">Median hours: PR opened → production deploy</div>
+      <div class="metric-bars placeholder-overlay" id="ltChart"></div>
+    </div>
+    <div class="dora-chart-card">
+      <div class="card-title">Change Failure Rate</div>
+      <div class="card-subtitle">% of deploys requiring hotfix or rollback</div>
+      <div class="metric-bars placeholder-overlay" id="cfrChart"></div>
+    </div>
+    <div class="dora-chart-card">
+      <div class="card-title">Mean Time to Recovery</div>
+      <div class="card-subtitle">Median hours from incident to resolution</div>
+      <div class="metric-bars placeholder-overlay" id="mttrChart"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">Innago Engineering Portfolio</div>
+
+<script src="portfolio-data.js"></script>
+<script>
+var DATA = PORTFOLIO.quarterlyReleases;
+
+// ─── Populate DORA cards from central data ───
+(function() {
+  var d = PORTFOLIO.dora;
+
+  // Deployment Frequency (derived from release data)
+  var totalReleases = PORTFOLIO.headline.totalReleases;
+  var months = PORTFOLIO.meta.months;
+  document.getElementById('dfValue').textContent = '~' + Math.round(totalReleases / months);
+
+  // Lead Time
+  if (!PORTFOLIO.isPlaceholder(d.leadTime.currentMedian)) {
+    document.getElementById('ltValue').textContent = d.leadTime.currentMedian;
+    document.getElementById('ltTrend').textContent = d.leadTime.trend;
+    document.getElementById('ltTrend').className = 'dora-card-trend positive';
+  }
+
+  // CFR
+  if (!PORTFOLIO.isPlaceholder(d.changeFailureRate.currentRate)) {
+    document.getElementById('cfrValue').textContent = d.changeFailureRate.currentRate + '%';
+    document.getElementById('cfrTrend').textContent = d.changeFailureRate.trend;
+    document.getElementById('cfrTrend').className = 'dora-card-trend positive';
+  }
+
+  // MTTR
+  if (!PORTFOLIO.isPlaceholder(d.mttr.currentMedian)) {
+    document.getElementById('mttrValue').textContent = d.mttr.currentMedian;
+    document.getElementById('mttrTrend').textContent = d.mttr.trend;
+    document.getElementById('mttrTrend').className = 'dora-card-trend positive';
+  }
+
+  // Classification
+  if (!PORTFOLIO.isPlaceholder(d.currentClassification)) {
+    document.getElementById('doraCurrentClass').textContent = d.currentClassification.toUpperCase();
+  }
+  if (!PORTFOLIO.isPlaceholder(d.targetClassification)) {
+    document.getElementById('doraTargetClass').textContent = 'TARGET: ' + d.targetClassification.toUpperCase();
+  }
+
+  // ─── Render placeholder bar charts for LT, CFR, MTTR ───
+  ['ltChart', 'cfrChart', 'mttrChart'].forEach(function(chartId) {
+    var el = document.getElementById(chartId);
+    var html = '';
+    DATA.forEach(function(qd) {
+      var shortQ = PORTFOLIO.shortQuarter(qd.q);
+      html += '<div class="metric-bar-group">';
+      html += '<div class="metric-bar" style="height:' + (10 + Math.random() * 60) + '%;background:var(--gray-200);border:1px dashed var(--gray-300)"></div>';
+      html += '<span class="metric-bar-label">' + shortQ + '</span>';
+      html += '</div>';
+    });
+    el.innerHTML = html;
+  });
+
+  // Remove placeholder overlay if data exists
+  if (!PORTFOLIO.isPlaceholder(d.leadTime.quarterly[0].median)) {
+    document.getElementById('ltChart').classList.remove('placeholder-overlay');
+  }
+  if (!PORTFOLIO.isPlaceholder(d.changeFailureRate.quarterly[0].rate)) {
+    document.getElementById('cfrChart').classList.remove('placeholder-overlay');
+  }
+  if (!PORTFOLIO.isPlaceholder(d.mttr.quarterly[0].median)) {
+    document.getElementById('mttrChart').classList.remove('placeholder-overlay');
+  }
+})();
+
+// Animate in
+var fades = document.querySelectorAll('.fade');
+fades.forEach(function(el, i) { setTimeout(function() { el.classList.add('in'); }, 100 + i * 100); });
+</script>
+
+</body>
+</html>

@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --innago-blue: #1A56DB;
-  --innago-blue-dark: #0F3A8F;
-  --innago-blue-50: #F5F8FF;
-  --innago-blue-100: #DBEAFE;
-  --innago-blue-200: #BFCFFC;
+  --innago-blue: #3498DB;
+  --innago-blue-dark: #2176AE;
+  --innago-blue-50: #EBF5FB;
+  --innago-blue-100: #D6EAF8;
+  --innago-blue-200: #AED6F1;
   --white: #FFFFFF;
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -51,10 +51,7 @@ body {
 }
 
 /* ─── Top accent ─── */
-.top-accent {
-  height: 5px;
-  background: linear-gradient(90deg, var(--innago-blue) 0%, var(--purple) 25%, var(--green) 50%, var(--amber) 75%, var(--innago-blue) 100%);
-}
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--innago-blue), var(--purple), var(--green), var(--amber), var(--innago-blue)); }
 
 /* ─── Hero ─── */
 .hero {
@@ -69,34 +66,11 @@ body {
   text-align: center;
 }
 
-.logo-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
+.logo-img {
+  height: 36px;
   margin-bottom: 36px;
   opacity: 0;
   animation: fadeIn 0.5s ease forwards 0.05s;
-}
-
-.logo-mark {
-  width: 42px;
-  height: 42px;
-  background: var(--innago-blue);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 18px;
-}
-
-.logo-text {
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--gray-900);
-  letter-spacing: -0.3px;
 }
 
 .hero h1 {
@@ -308,23 +282,14 @@ body {
 .card-ai .card-tag { background: var(--cyan-light); color: var(--cyan); }
 
 /* ─── Footer ─── */
-.footer {
+.footer { border-top: 1px solid var(--gray-200); padding-top: 24px;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 48px 40px;
   text-align: center;
-}
-
-.footer-text {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--gray-400);
-}
-
-.footer-conf {
-  font-size: 11px;
-  color: var(--gray-300);
-  margin-top: 4px;
 }
 
 /* ─── Animations ─── */
@@ -347,14 +312,11 @@ body {
 </head>
 <body>
 
-<div class="top-accent"></div>
+<div class="top-bar"></div>
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="logo-row">
-      <div class="logo-mark">in</div>
-      <span class="logo-text">innago</span>
-    </div>
+    <img src="https://innago.com/public/logos/innago-logo-blue.svg" alt="innago" class="logo-img">
     <h1>Engineering<br><span>Portfolio</span></h1>
     <p class="hero-sub">3 years of platform evolution — 265 releases, 7 capability pillars, 13 consecutive quarters of shipping. Explore the full execution story.</p>
     <div class="quick-stats">
@@ -408,43 +370,43 @@ body {
         <div class="card-number">03</div>
         <div class="card-icon">🔄</div>
         <div class="card-title">Platform Evolution</div>
-        <div class="card-desc">The "From → To" infographic. Seven capability pillars showing exactly how the platform transformed from Jan 2023 to Mar 2026.</div>
+        <div class="card-desc">The "From → To" transformation across 7 pillars, plus a quarterly delivery heatmap with drill-down into 165 milestones.</div>
         <div class="card-tags">
           <span class="card-tag">7 PILLARS</span>
           <span class="card-tag">BEFORE / AFTER</span>
-          <span class="card-tag">INFOGRAPHIC</span>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-    </a>
-
-    <!-- 4. Capability Maturity -->
-    <a href="innago-capability-maturity.html" class="card-link">
-      <div class="card card-maturity">
-        <div class="card-number">04</div>
-        <div class="card-icon">📊</div>
-        <div class="card-title">Capability Maturity</div>
-        <div class="card-desc">Quarterly heatmap and cumulative growth chart showing how each pillar deepened over 12 quarters. Click any cell to drill into milestones.</div>
-        <div class="card-tags">
           <span class="card-tag">HEATMAP</span>
-          <span class="card-tag">DRILL-DOWN</span>
-          <span class="card-tag">165 MILESTONES</span>
         </div>
         <div class="card-arrow">→</div>
       </div>
     </a>
 
-    <!-- 5. Velocity Dashboard -->
-    <a href="innago-velocity-dashboard.html" class="card-link">
+    <!-- 4. Engineering Effectiveness (DORA) -->
+    <a href="innago-engineering-effectiveness.html" class="card-link">
+      <div class="card card-velocity">
+        <div class="card-number">04</div>
+        <div class="card-icon">⚡</div>
+        <div class="card-title">Engineering Effectiveness</div>
+        <div class="card-desc">DORA metrics, release composition, and delivery cadence — deployment frequency, lead time, change failure rate, and how the mix shifted from support-heavy to feature-led.</div>
+        <div class="card-tags">
+          <span class="card-tag">DORA METRICS</span>
+          <span class="card-tag">COMPOSITION</span>
+          <span class="card-tag">YEAR-OVER-YEAR</span>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- 5. Team & Roadmap -->
+    <a href="innago-team-roadmap.html" class="card-link">
       <div class="card card-velocity">
         <div class="card-number">05</div>
-        <div class="card-icon">⚡</div>
-        <div class="card-title">Release Velocity</div>
-        <div class="card-desc">Stacked bar chart showing shipping cadence and composition shift — how the mix evolved from support-heavy to feature-led as the platform matured.</div>
+        <div class="card-icon">👥</div>
+        <div class="card-title">Team & Roadmap</div>
+        <div class="card-desc">Team headcount, composition, effort allocation, active migrations, roadmap for coming quarters, and the risk register.</div>
         <div class="card-tags">
-          <span class="card-tag">STACKED BARS</span>
-          <span class="card-tag">YEAR-OVER-YEAR</span>
-          <span class="card-tag">COMPOSITION</span>
+          <span class="card-tag">TEAM</span>
+          <span class="card-tag">ROADMAP</span>
+          <span class="card-tag">RISK REGISTER</span>
         </div>
         <div class="card-arrow">→</div>
       </div>
@@ -469,10 +431,7 @@ body {
   </div>
 </div>
 
-<div class="footer">
-  <div class="footer-text">Innago Engineering Portfolio · Jan 2023 – Mar 2026 · 6 Artifacts</div>
-  <div class="footer-conf">Confidential — For Internal & Investor Use</div>
-</div>
+<div class="footer">Innago Engineering Portfolio</div>
 
 <script>
 // Staggered card entrance
